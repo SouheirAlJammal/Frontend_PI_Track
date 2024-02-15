@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import style from "./Signup.module.css";
 import { useForm } from "react-hook-form";
+import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
+import style from "./Signup.module.css";
 
 const Signup = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, getValues, setError } = useForm();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (data) => {
     try {
@@ -21,18 +23,22 @@ const Signup = () => {
 
       console.log(response);
 
-      navigate("/login", { replace: true });
+      navigate("/logIn", { replace: true });
     } catch (error) {
       console.error("Error during sign-up:", error);
 
       if (error.response) {
         const errorData = error.response.data;
-        setError("email", { type: "manual", message: errorData.message || "Registration failed" });
+        setError("email", { type: "manual", message: errorData.errors.email || "" });
+        setError("password", { type: "manual", message: errorData.errors.password || "" });
+        setError("username", { type: "manual", message: errorData.errors.username || "" });
       } else if (error.request) {
         setError("email", { type: "manual", message: "No response from the server" });
+        setError("password", { type: "manual", message: "No response from the server" });
       } else {
         setError("email", { type: "manual", message: "Error setting up the request" });
-      } 
+        setError("password", { type: "manual", message: "Error setting up the request" });
+      }
     } finally {
       setLoading(false);
     }
@@ -43,6 +49,7 @@ const Signup = () => {
       <h1 className={style.title}>Sign Up</h1>
       <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
         <div className={style.usernameInput}>
+
           <input
             type="text"
             name="username"
@@ -50,9 +57,12 @@ const Signup = () => {
             {...register("username", { required: "Username is required" })}
             className={style.input}
           />
+          <FaUser className={style.icon} />
           <small className={style.textDanger}>{errors.username?.message}</small>
         </div>
+
         <div className={style.emailInput}>
+
           <input
             type="email"
             name="email"
@@ -60,19 +70,32 @@ const Signup = () => {
             {...register("email", { required: "Email is required" })}
             className={style.input}
           />
+          <FaEnvelope className={style.icon} />
           <small className={style.textDanger}>{errors.email?.message}</small>
         </div>
+
         <div className={style.passwordInput}>
+
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             name="password"
             placeholder="Password"
             {...register("password", { required: "Password is required" })}
             className={style.input}
           />
+          {(!showPassword) ? <FaEye
+            onClick={() => setShowPassword(!showPassword)}
+            className={style.clockicon}
+          /> :
+            <FaEyeSlash
+              onClick={() => setShowPassword(!showPassword)}
+              className={style.clockicon} />
+          }
           <small className={style.textDanger}>{errors.password?.message}</small>
         </div>
+
         <div className={style.passwordInput}>
+
           <input
             type="password"
             name="passwordConfirmation"
@@ -83,15 +106,17 @@ const Signup = () => {
             })}
             className={style.input}
           />
+          <FaLock className={style.icon} />
           <small className={style.textDanger}>{errors.passwordConfirmation?.message}</small>
         </div>
-       
+
         <p className={style.text}>
           Already have an account?
-          <Link to="/login" className={style.login}>
+          <Link to="/logIn" className={style.login}>
             Login
           </Link>
         </p>
+
         <button
           type="submit"
           className={`${style.btn} ${style.btnWarning} ${style.btnLg} ${style.btnBlock}`}

@@ -9,7 +9,7 @@ export const useUserStore = create(
     removeUser: () => set(() => ({ user: null })),
     logOut:async ()=>{
         try {
-            const response = await axios.post(`${process.env.REACT_APP_ENDPOINT}api/users/logout`);
+            await axios.post(`${process.env.REACT_APP_ENDPOINT}api/users/logout`);
             set(() => ({ user: null }));
           } catch (err) {
             console.error("Error logging out :", err);

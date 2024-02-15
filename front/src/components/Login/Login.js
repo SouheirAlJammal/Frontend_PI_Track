@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import style from "./Login.module.css";
 import { useForm } from "react-hook-form";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserStore } from "../../Store";
-
+import google from '../../assets/google.png'
+import { FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
 const Login = () => {
   const { setUser } = useUserStore();
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Login = () => {
     try {
       setLoading(true);
       const response = await axios.post(`${process.env.REACT_APP_ENDPOINT}api/users/login`, {
-        email: data.email,
+        eFaEnvelope: data.eFaEnvelope,
         password: data.password,
       }, { withCredentials: true });
       console.log(response)
@@ -51,11 +51,14 @@ const Login = () => {
 
       if (error.response) {
         const errorData = error.response.data;
-        setError("email", { type: "manual", message: errorData.message || "Authentication failed" });
+        setError("eFaEnvelope", { type: "manual", message: errorData.errors.eFaEnvelope || "" });
+        setError("password", { type: "manual", message: errorData.errors.password || "" });
       } else if (error.request) {
-        setError("email", { type: "manual", message: "No response from the server" });
+        setError("eFaEnvelope", { type: "manual", message: "No response from the server" });
+        setError("password", { type: "manual", message: "No response from the server" });
       } else {
-        setError("email", { type: "manual", message: "Error setting up the request" });
+        setError("eFaEnvelope", { type: "manual", message: "Error setting up the request" });
+        setError("password", { type: "manual", message: "Error setting up the request" });
       }
     } finally {
       setLoading(false);
@@ -65,8 +68,8 @@ const Login = () => {
   return (
     <div className={style.container}>
       <h1 className={style.title}>Welcome Back</h1>
-      <button className={style.google}>Login with Google</button>
-      <p>
+      <button className={style.google}><img loading='lazy' src={google} width={30} alt='google' /> Login with Google</button>
+      <p className={style.orText}>
         <span>---</span> OR <span>---</span>
       </p>
       <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
@@ -78,6 +81,7 @@ const Login = () => {
             {...register("email", { required: "Email is required" })}
             className={style.input}
           />
+          <FaEnvelope className={style.icon} />
           <small className={style.textDanger}>{errors.email?.message}</small>
         </div>
         <div className={style.passwordInput}>
@@ -88,10 +92,14 @@ const Login = () => {
             {...register("password", { required: "Password is required" })}
             className={style.input}
           />
-          <FaRegEye
+          {(!showPassword) ? <FaEye
             onClick={() => setShowPassword(!showPassword)}
             className={style.eyeIcon}
-          />
+          /> :
+            <FaEyeSlash
+              onClick={() => setShowPassword(!showPassword)}
+              className={style.eyeIcon} />
+          }
           <small className={style.textDanger}>{errors.password?.message}</small>
         </div>
         <p className={style.text}>
@@ -100,10 +108,9 @@ const Login = () => {
             Sign Up
           </Link>
         </p>
-        <small className={style.textDanger}>{errors.email?.message}</small>
         <button
           type="submit"
-          className={`${style.btn} ${style.btnWarning} ${style.btnLg} ${style.btnBlock}`}
+          className={`${style.btn}`}
           disabled={loading}
         >
           {loading ? "Logging in..." : "Login"}
