@@ -2,6 +2,7 @@
   --primary-color: rgba(200,223,231,0.8);
   --secondary-color: rgb(230,162,144);
   --font-color-title:rgb(7,28,53);
+  /* #071c35 */
   --font-color-subtitle:rgba(7,28,53,0.5);
 }
 * {
@@ -9,4 +10,5 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Poppins;
+  
 }

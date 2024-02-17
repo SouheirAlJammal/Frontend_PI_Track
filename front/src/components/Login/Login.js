@@ -24,7 +24,7 @@ const Login = () => {
     try {
       setLoading(true);
       const response = await axios.post(`${process.env.REACT_APP_ENDPOINT}api/users/login`, {
-        eFaEnvelope: data.eFaEnvelope,
+        email: data.email,
         password: data.password,
       }, { withCredentials: true });
       console.log(response)
@@ -51,13 +51,13 @@ const Login = () => {
 
       if (error.response) {
         const errorData = error.response.data;
-        setError("eFaEnvelope", { type: "manual", message: errorData.errors.eFaEnvelope || "" });
+        setError("email", { type: "manual", message: errorData.errors.email || "" });
         setError("password", { type: "manual", message: errorData.errors.password || "" });
       } else if (error.request) {
-        setError("eFaEnvelope", { type: "manual", message: "No response from the server" });
+        setError("email", { type: "manual", message: "No response from the server" });
         setError("password", { type: "manual", message: "No response from the server" });
       } else {
-        setError("eFaEnvelope", { type: "manual", message: "Error setting up the request" });
+        setError("email", { type: "manual", message: "Error setting up the request" });
         setError("password", { type: "manual", message: "Error setting up the request" });
       }
     } finally {
@@ -115,7 +115,7 @@ const Login = () => {
         >
           {loading ? "Logging in..." : "Login"}
         </button>
-      </form>
+      </form> 
     </div>
   );
 };
