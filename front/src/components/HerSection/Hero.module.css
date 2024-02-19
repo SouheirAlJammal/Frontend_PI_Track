@@ -6,7 +6,7 @@
     justify-content: center;
     /* background-color: blue; */
     position: relative ;
-
+    color:var(--font-color-title)
 }
 
 
@@ -25,7 +25,6 @@
 .title1,
 .title2 {
     font-size: 64px;
-    color: var(--font-color-title);
 }
 
 .title3 {
