@@ -1,0 +1,29 @@
+.valuesContainer {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 80%;
+    color:var(--font-color-title)
+}
+
+.values {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    grid-gap: 33px 20px;
+
+}
+
+@media (max-width: 1230px) {
+    .values {
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px){
+.values {
+    grid-template-columns: 1fr;
+}}

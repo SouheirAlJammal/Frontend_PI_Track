@@ -1,0 +1,30 @@
+
+
+.card {
+    height: 184px;
+    padding: 42px 28px;
+    background: rgba(242, 239, 239, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    color:var(--font-color-title)
+}
+
+.img {
+    display: block;
+    margin-left: 32px;
+    margin-bottom: -28px;
+}
+
+
+
+@media (max-width: 768px) {
+    .card {
+        padding-top: 28px;
+        padding-left: 17px;
+        padding-right: 16px;
+        min-height: 138px;
+        height: unset;
+    }
+}
+
