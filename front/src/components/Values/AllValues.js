@@ -20,7 +20,7 @@ const AllValues = () => {
     ];
 
     return (
-        <Element className={style.valuesContainer} name="myScrollToElement" id='values'>
+        <Element className={style.valuesContainer} name="valuesSection" id='values'>
             <h2 className={style.title}>Values</h2>
             <p className={style.subtitle}>Stay organized and optimize your learning journey.</p>
             <section className={style.values}>{values.map(elt => <Value value={elt} />)}</section>

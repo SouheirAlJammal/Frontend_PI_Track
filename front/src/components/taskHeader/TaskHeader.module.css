@@ -1,0 +1,66 @@
+.DashHeader {
+    color: var(--font-color-title);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid var(--font-color-subtitle);
+
+}
+
+.header {
+    border-left: 4px solid var(--secondary-color);
+    padding: 10px;
+    width: 70%;
+    height: 74px;
+
+}
+
+.subtitle {
+    color: var(--font-color-subtitle);
+    font-weight: 500;
+
+}
+
+
+.function {
+    width: 14%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    border-radius: 5px;
+    padding: 8px;
+    border: none;
+    background-color: var(--font-color-title);
+    color: white;
+    font-size: 16px;
+    height: 100%;
+    font-weight: 500;
+}
+
+.sorting {
+    border-radius: 5px;
+    height: 100%;
+    width: 100px;
+    background-color: white;
+    font-size: 16px;
+}
+
+.sorting option:after {
+    color: red;
+    background-color: red;
+}
+
+/* .icon {
+    color: var(--font-color-title);
+    width: 50px;
+    height: 50px;
+    background-color: rgb(241, 238, 238);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+
+} */

@@ -1,0 +1,12 @@
+.tasks {
+    padding: 30px 40px 40px 40px ;
+    width: 90%;
+
+}
+
+.statusContainer{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

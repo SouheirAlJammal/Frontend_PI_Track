@@ -34,14 +34,21 @@ const NavBar = () => {
         const scrollToOptions = {
             duration: 1500,
             delay: 0,
+            offset: -120,
             smooth: 'easeInOutQuint',
         };
 
         if (url === '/') {
             scroll.scrollToTop(scrollToOptions);
-        } else if (['/values', '/aboutUs', '/process', '/contact'].includes(url)) {
-            scroller.scrollTo('myScrollToElement', scrollToOptions);
-        }
+        } else if (['/values'].includes(url)) {
+            scroller.scrollTo('valuesSection', scrollToOptions);
+          } else if (['/aboutUs'].includes(url)) {
+            scroller.scrollTo('aboutUsSection', scrollToOptions);
+          } else if (['/process'].includes(url)) {
+            scroller.scrollTo('processSection', scrollToOptions);
+          } else if (['/contact'].includes(url)) {
+            scroller.scrollTo('contactSection', scrollToOptions);
+          }
     };
 
     const handleClick = () => {
