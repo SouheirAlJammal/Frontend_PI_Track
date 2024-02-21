@@ -1,14 +1,18 @@
 import { Routes, Route } from 'react-router-dom'
 import React from 'react'
 import Register from '../pages/register/Register.js'
-import Hero from '../components/HerSection/Hero.js'
 import SideBar from '../layout/sideBar/SideBar.js'
 import AllValues from '../components/Values/AllValues.js'
+import WithFooter from '../layout/WithFooter/WithFooter.js'
+import Home from '../pages/Home/Home'
 const AppRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Hero />} />
+        <Route  element={<WithFooter />}> 
+          <Route path='/' element={<Home />} />
+          </Route>
+       
         <Route path='/login' element={<Register />} />
         <Route path='/signup' element={<Register />} />
         <Route path='/values' element={<AllValues />} />

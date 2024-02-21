@@ -2,7 +2,7 @@
     margin: 0 auto;
     padding: 0 15px;
     max-width: 80%;
-    color:var(--font-color-title)
+    color: var(--font-color-title)
 }
 
 .values {
@@ -16,6 +16,15 @@
 
 }
 
+.title {
+    font-size: 48px;
+    line-height: 1.34;
+}
+
+.subtitle {
+    font-weight: 500;
+}
+
 @media (max-width: 1230px) {
     .values {
         grid-gap: 10px;
@@ -23,7 +32,36 @@
     }
 }
 
-@media (max-width: 768px){
-.values {
-    grid-template-columns: 1fr;
-}}
+@media (max-width:900px) {
+    .title {
+        font-size: 36px;
+
+    }
+    
+}
+@media (max-width: 768px) {
+    .values {
+        grid-template-columns: 1fr;
+    }
+
+ 
+}
+
+@media (max-width:500px) {
+    .subtitle {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .title {
+        font-size: 26px;
+        line-height: 1.34;
+    }
+    .valuesContainer {
+        margin: 0 auto;
+        padding: 0 5px;
+        max-width: 80%;
+        color: var(--font-color-title)
+    }
+    
+}
