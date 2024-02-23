@@ -92,7 +92,7 @@ const NavBar = () => {
                     </li>
                     <div className={style.navButtonContainer}>
                         <li>
-                            <NavLink to='signup'>
+                            <NavLink to='logIn'>
                                 <Button
                                     variant="contained"
                                     sx={{
@@ -110,7 +110,7 @@ const NavBar = () => {
                                         },
                                     }}
                                 >
-                                    SIGN UP
+                                   LOG IN
                                 </Button>
                             </NavLink>
                         </li>

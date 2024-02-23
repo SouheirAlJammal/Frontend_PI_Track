@@ -3,7 +3,6 @@ import TaskHeader from '../../../components/taskHeader/TaskHeader'
 import TaskStatus from '../../../components/taskStatus/TaskStatus'
 import style from './Task.module.css'
 import DashHead from '../../../components/DashHead/DashHead'
-import CardTask from '../../../components/CardTask/CardTask'
 import axios from 'axios'
 import SingleTask from './SingleTask'
 
@@ -13,9 +12,7 @@ const Task = () => {
   //get Alll Tasks 
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [pagination, setPagination] = useState({ pageSize: 5, page: 0 });
-
-
+ 
  async function getTasks() {
     try {
       const response = await axios.get(
@@ -55,7 +52,7 @@ const Task = () => {
       ) : (
         <section className={style.tasksContainer}>
           {tasks.map((task,i) => (
-            <SingleTask task={task} key={i}/>
+            <SingleTask task={task} key={i} id={task._id} getTasks={getTasks}/>
           ))}
         </section>
       )}

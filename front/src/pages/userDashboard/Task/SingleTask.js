@@ -1,10 +1,5 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemButton from '@mui/material/ListItemButton';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -12,15 +7,13 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import CardTask from '../../../components/CardTask/CardTask'
-import { CardActionArea } from '@mui/material';
-import DashHead from '../../../components/DashHead/DashHead';
 import style from './SingleTask.module.css'
 import SingleTaskContent from '../../../components/SingleTaskContent/SingleTaskContent';
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function SingleTask({ task }) {
+export default function SingleTask({ task, id ,getTasks }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -34,63 +27,45 @@ export default function SingleTask({ task }) {
   return (
     <React.Fragment>
       <div onClick={handleClickOpen}>
-        <CardTask task={task} />
+        <CardTask task={task} id={id}  />
       </div>
       <Dialog
         fullScreen
         open={open}
         onClose={handleClose}
         TransitionComponent={Transition}
-      
+        sx={{
+          '.css-m9glnp-MuiPaper-root-MuiDialog-paper': {
+            backgroundColor: '#F5F4F4 !important',
+          },
+        }}
       >
-        <AppBar sx={{ backgroundColor: 'rgb(7,28,53)', borderEndStartRadius: '10px',  borderEndEndRadius: '10px', width: '100%', margin: ' 0 auto',position:'relative',border:'none',height:'20vh',zIndex:'0' }}>
-          {/* <Toolbar>
+        <AppBar sx={{ backgroundColor: 'rgb(7,28,53)', borderEndStartRadius: '10px', borderEndEndRadius: '10px', width: '100%', margin: ' 0 auto', position: 'relative', border: 'none', height: '20vh', zIndex: '0' }}>
+          <Toolbar>
+            {/* <IconButton
+              edge="start"
+              color="red"
+              onClick={handleClose}
+              aria-label="close"
+            >
+              <CloseIcon style={{ backgroundColor: 'white', borderRadius: '50%', width: '40px', height: '40px' }} />
+            </IconButton> */}
             <IconButton
               edge="start"
-              color="red"
+              color="inherit"
               onClick={handleClose}
               aria-label="close"
+              className={style.closeButton}
             >
-              <CloseIcon />
-            </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Sound
-            </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              save
-            </Button>
-          </Toolbar> */}
+              <CloseIcon style={{ color: 'rgb(7,28,53)', backgroundColor: 'rgb(247, 247, 247)' }} />
 
-          <Toolbar>
-          <IconButton
-              edge="start"
-              color="red"
-              onClick={handleClose}
-              aria-label="close"
-            >
-              <CloseIcon  style={{backgroundColor:'white',borderRadius:'50%',width:'40px',height:'40px'}} />
+              <Typography sx={{ ml: 2, flex: 1, color: 'rgb(7,28,53)' }} variant="h6" component="div">
+                Close
+              </Typography>
             </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              
-            </Typography>
-            <Button autoFocus onClick={handleClose} sx={{backgroundColor:' rgba(200,223,231,0.8)',color:'white'}}>
-              Save Changes
-            </Button>
-            </Toolbar>
+          </Toolbar>
         </AppBar>
-        {/* <List>
-          <ListItemButton>
-            <ListItemText primary="Phone ringtone" secondary="Titania" />
-          </ListItemButton>
-          <Divider />
-          <ListItemButton>
-            <ListItemText
-              primary="Default notification ringtone"
-              secondary="Tethys"
-            />
-          </ListItemButton>
-        </List> */}
-        <SingleTaskContent/>
+        <SingleTaskContent task={task} id={id} onDeleteTask={handleClose} getTasks={getTasks} />
       </Dialog>
     </React.Fragment>
   );

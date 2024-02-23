@@ -32,7 +32,7 @@
     margin: 0 0 30px 0;
     color: var(--font-color-title);
     overflow: hidden;
-
+    cursor: pointer;
     border-radius: 12px;
 }
 
