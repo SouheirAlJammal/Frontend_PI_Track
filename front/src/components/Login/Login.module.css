@@ -41,12 +41,15 @@
   height: 60px;
   font-size: 20px;
   padding: 1px;
-  color: var(--font-color-subtitle);
-  border: 1px solid var(--font-color-subtitle);
+  color: var(--font-color-title);
+  font-weight: 400;
+  border: 1px solid var(--font-color-title);
   border-radius: 5px;
   background-color: transparent;
 }
-
+.google:hover{
+  background-color: rgb(244, 244, 245);
+}
 .form {
   width: 50%;
   display: flex;
@@ -68,7 +71,7 @@
   box-sizing: border-box;
   border-radius: 5px;
   padding: 0 10px;
-  border: 3px solid var(--font-color-subtitle);
+  border: 3px solid var(--font-color-title);
 }
 
 .input:focus {
@@ -90,14 +93,14 @@
   right: 10px;
   top: 35%;
   cursor: pointer;
-  color: var(--font-color-subtitle);
+  color: var(--font-color-title);
 }
 
 .icon {
   position: absolute;
   right: 10px;
   top: 35%;
-  color: var(--font-color-subtitle);
+  color: var(--font-color-title);
 }
 
 .textDanger {

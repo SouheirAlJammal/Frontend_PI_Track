@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styles from './SideBar.module.css';
 import { NavLink, Outlet,Link } from 'react-router-dom';
 import { BsHouse,BsBoxArrowRight } from 'react-icons/bs';
 import { IoIosArrowForward } from "react-icons/io";
 import { SiSquarespace } from "react-icons/si";
+import { useUserStore } from "../../Store";
 import { BiTask } from "react-icons/bi";
 import { MdOutlinePlayLesson } from "react-icons/md";
 import { IoCalendarNumberOutline } from "react-icons/io5";
 const SideBar = () => {
-  const [isSidebarClosed, setSidebarClosed] = useState(false);
+  const { user } = useUserStore()
+  console.log(user)
+  const [isSidebarClosed, setSidebarClosed] = useState(window.innerWidth < 1000);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSidebarClosed(window.innerWidth < 1000);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleToggleSidebar = () => {
     setSidebarClosed(!isSidebarClosed);
@@ -28,13 +43,14 @@ const SideBar = () => {
     <div>
       <nav className={`${styles.sidebar} ${isSidebarClosed ? styles.close : ''}`}>
         <header>
+          <Link to='/' style={{textDecoration:'none'}}>
           <div className={styles['image-text']}>
             <SiSquarespace className={styles.image}/>
             <div className={`${styles['logo-text']}`}>
               <span className={styles.name}>PI-Track</span>
             </div>
           </div>
-      
+      </Link>
           <i className={`bx bx-chevron-right ${styles.toggle}`} onClick={handleToggleSidebar}><IoIosArrowForward /></i>
         </header>
 

@@ -1,12 +1,36 @@
 .tasks {
-    padding: 30px 40px 40px 40px ;
-    width: 90%;
-
+    padding: 20px 40px 40px 50px;
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    background-color: #F5F4F4;
 }
 
-.statusContainer{
-    
+.statusContainer {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+.tasksContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 480px;
+    padding: 0;
+    column-gap: 40px;
+}
+
+@media (width<900px) {
+    .tasks {
+        padding: 30px 0 40px 25px;
+    }
 }

@@ -7,7 +7,7 @@ import { useUserStore } from "../../Store";
 import google from '../../assets/google.png'
 import { FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
 const Login = () => {
-  const { setUser } = useUserStore();
+  const { setUser,user } = useUserStore();
   const navigate = useNavigate();
 
   const {
@@ -31,21 +31,26 @@ const Login = () => {
       const fetchUser = async () => {
         try {
           const response = await axios.get(`${process.env.REACT_APP_ENDPOINT}api/users/user`, { withCredentials: true });
-          setUser(response.data.data)
+          setUser(response.data.data)  
+       
         } catch (err) {
           console.error("Error fetching user data:", err);
           setUser(null)
         }
       }
       await fetchUser()
-      const { user } = useUserStore.getState();
-
-      if (user && user.role === 'admin') {
+      // const { user } = useUserStore.getState();
+      console.log('hhhhhhhhhhhhhh',user)
+   if (user && user.role === 'admin') {
         navigate("/dashboard", { replace: true });
+        console.log('llllllllllllll')
       } else if (user && user.role === 'user') {
         navigate("/", { replace: true });
+        console.log('llooooooooooooll')
+
       }
 
+    
     } catch (error) {
       console.error("Error during login:", error);
 

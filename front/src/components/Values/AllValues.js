@@ -23,7 +23,7 @@ const AllValues = () => {
         <Element className={style.valuesContainer} name="valuesSection" id='values'>
             <h2 className={style.title}>Values</h2>
             <p className={style.subtitle}>Stay organized and optimize your learning journey.</p>
-            <section className={style.values}>{values.map(elt => <Value value={elt} />)}</section>
+            <section className={style.values}>{values.map((elt,i)=> <Value value={elt} key={i} />)}</section>
         </Element>
     );
 };

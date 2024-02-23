@@ -78,6 +78,7 @@ const NavBar = () => {
                                 <ScrollLink
                                     className={style.link}
                                     onClick={() => handleScrollToSection(Item.url)} 
+                                    to='#'
                                 >
                                     {Item.title}
                                 </ScrollLink>

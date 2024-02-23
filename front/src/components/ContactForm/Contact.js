@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from './Contact.module.css';
 import team from '../../assets/team.png';
-import { FaArrowRight } from "react-icons/fa";
+import { RiSendPlaneFill } from "react-icons/ri";
 import { Element } from 'react-scroll';
 const Contact = () => {
 
@@ -64,7 +64,7 @@ const Contact = () => {
 
           <button type="submit" className={style.submitButton}>
             Submit
-            <FaArrowRight />
+            <RiSendPlaneFill />
           </button>
         </form>
 

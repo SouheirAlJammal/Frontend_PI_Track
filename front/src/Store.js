@@ -4,7 +4,7 @@ import axios from 'axios'
 
 export const useUserStore = create(
   zukeeper((set) => ({
-    user:null,
+    user:{},
     setUser: (data) => set(() => ({ user: data })),
     removeUser: () => set(() => ({ user: null })),
     logOut:async ()=>{

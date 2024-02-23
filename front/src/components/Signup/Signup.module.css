@@ -56,14 +56,14 @@
   box-sizing: border-box;
   border-radius: 5px;
   padding: 0 10px;
-  border: 3px solid var(--font-color-subtitle);
+  border: 3px solid var(--font-color-title);
 }
 
 .icon {
   position: absolute;
   right: 10px;
   top: 35%;
-  color: var(--font-color-subtitle);
+  color: var(--font-color-title);
 }
 
 .clockicon {
@@ -71,7 +71,7 @@
   right: 10px;
   top: 35%;
   cursor: pointer;
-  color: var(--font-color-subtitle);
+  color: var(--font-color-title);
 }
 
 .textDanger {
