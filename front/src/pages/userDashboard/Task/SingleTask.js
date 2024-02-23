@@ -8,12 +8,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import CardTask from '../../../components/CardTask/CardTask'
 import style from './SingleTask.module.css'
+import styles from '../../../components/CardTask/CardTask.module.css'
 import SingleTaskContent from '../../../components/SingleTaskContent/SingleTaskContent';
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function SingleTask({ task, id ,getTasks }) {
+export default function SingleTask({ task, id ,getTasks}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -26,7 +27,7 @@ export default function SingleTask({ task, id ,getTasks }) {
 
   return (
     <React.Fragment>
-      <div onClick={handleClickOpen}>
+      <div onClick={handleClickOpen}  className={`${styles['ag-courses_item']} ${styles['even-bg']} `} >
         <CardTask task={task} id={id}  />
       </div>
       <Dialog
