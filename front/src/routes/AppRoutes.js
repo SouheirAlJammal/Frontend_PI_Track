@@ -6,6 +6,7 @@ import AllValues from '../components/Values/AllValues.js'
 import WithFooter from '../layout/WithFooter/WithFooter.js'
 import Home from '../pages/Home/Home'
 import Task from '../pages/userDashboard/Task/Task.js'
+import UserOverview from '../pages/userDashboard/UserOverview/UserOverview.js'
 const AppRoutes = () => {
   return (
     <div>
@@ -19,7 +20,7 @@ const AppRoutes = () => {
         <Route path='/values' element={<AllValues />} />
 
         <Route path='/dashboard' element={<SideBar />}>
-          <Route path='overView' element={<AllValues />} />
+          <Route path='overView' element={<UserOverview />} />
           <Route path='tasks' element={<Task />}></Route>
         </Route>
       </Routes>

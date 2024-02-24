@@ -10,7 +10,6 @@ import { MdOutlinePlayLesson } from "react-icons/md";
 import { IoCalendarNumberOutline } from "react-icons/io5";
 const SideBar = () => {
   const { user } = useUserStore()
-  console.log(user)
   const [isSidebarClosed, setSidebarClosed] = useState(window.innerWidth < 1000);
 
   useEffect(() => {

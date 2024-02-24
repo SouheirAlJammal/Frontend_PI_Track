@@ -19,7 +19,6 @@ const {user ,setUser}=useUserStore();
   useEffect(()=>{
 fetchUser()
   },[])
-  console.log("kkkkkkkkkk",user)
   return (
     <div className="App">
    <AppRoutes/>

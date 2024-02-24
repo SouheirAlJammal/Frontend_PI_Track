@@ -1,0 +1,29 @@
+.cardContainer {
+    background-color: white;
+    width: 300px;
+    height: 70px;
+    border-left: 5px solid #C8DFE7;
+    border-top-right-radius: 5px;
+    border-end-end-radius: 5px;
+    border-top-left-radius: 10px;
+    border-end-start-radius: 10px;
+    padding: 10px 15px;
+    position: relative;
+    color: var(--font-color-title)
+}
+
+.title,
+.lessons {
+    font-size: 12px;
+
+}
+
+.title {
+    font-weight: 600;
+}
+
+.lessons {
+    color: var(--font-color-subtitle);
+    font-weight: 500;
+
+}
