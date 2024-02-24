@@ -6,7 +6,7 @@ import styles from './TaskForm.module.css';
 import axios from 'axios';
 import { useUserStore } from '../../Store';
 
-const TaskForm = ({ showModal, handleClose ,getTasks}) => {
+const TaskForm = ({ showModal, handleClose ,getData}) => {
   const { control, handleSubmit, formState: { errors } } = useForm();
   const [loading, setLoading] = useState(false); // Corrected initial state
   const { user } = useUserStore.getState();
@@ -24,7 +24,7 @@ const TaskForm = ({ showModal, handleClose ,getTasks}) => {
     try {
       await handleAddTask(data);
       handleClose();
-      getTasks();
+      getData();
     } catch (error) {
       console.log(error);
     } finally {

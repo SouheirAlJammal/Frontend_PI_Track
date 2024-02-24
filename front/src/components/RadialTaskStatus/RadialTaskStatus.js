@@ -46,8 +46,8 @@ const total = values.reduce((sum, value) => sum + value, 0);
   });
 
   return (
-      <div id="chart">
-        <ReactApexChart options={chartData.options} series={chartData.series} type="radialBar" height={350} />
+      <div>
+        <ReactApexChart options={chartData.options} series={chartData.series} type="radialBar" height={350}/>
       </div>
   );
 };

@@ -19,7 +19,7 @@ const DashHead = ({ title, subtitle, date,image }) => {
             <h1 className={style.title}>{title}</h1>
             <p className={style.subtitle}>{subtitle}</p>
             </section>
-           { (image)? <img alt={image.alt} src={image.src} loading='lazy' className={style.image} width={200} height={200}/> : ''}
+           { (image)? <img alt={image.alt} src={image.src} loading='lazy' className={style.image} width={180} height={180}/> : ''}
         </div>
     )
 }

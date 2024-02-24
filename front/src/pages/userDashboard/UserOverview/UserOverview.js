@@ -3,11 +3,51 @@ import style from './UserOverview.module.css';
 import PlanProgressCrad from '../../../components/PLanProgressCard/PlanProgressCrad';
 import RadialTaskStatus from '../../../components/RadialTaskStatus/RadialTaskStatus';
 import axios from 'axios';
-
+import DashHead from '../../../components/DashHead/DashHead'
+import { useUserStore } from '../../../Store';
+import boy from '../../../assets/studyBoy.png'
+import ChartComponent from '../../../components/Chart/Chart';
 const UserOverview = () => {
+  const { user } = useUserStore();
   const [plansProgress, setPlansProgress] = useState([]);
   const [status, setStatus] = useState([]);
   const [loading, setLoading] = useState(true);
+  const WelcomeExpression = 'Welcome back, ' + user.username + '!';
+
+  //mock data 
+  const plans = [
+    {
+      "planId": "6134f4ab93be59001f2e01e0",
+      "title": "Sample Plan 1",
+      "progressPercentage": 50,
+      "totalLessons": 2
+    },
+    {
+      "planId": "6134f4ab93be59001f2e01e1",
+      "title": "Sample Plan 2",
+      "progressPercentage": 40,
+      "totalLessons": 2
+    },
+    {
+      "planId": "6134f4ab93be59001f2e01e1",
+      "title": "Sample Plan 2",
+      "progressPercentage": 40,
+      "totalLessons": 2
+    },
+    // {
+    //   "planId": "6134f4ab93be59001f2e01e1",
+    //   "title": "Sample Plan 2",
+    //   "progressPercentage": 40,
+    //   "totalLessons": 2
+    // },
+    // {
+    //   "planId": "6134f4ab93be59001f2e01e1",
+    //   "title": "Sample Plan 2",
+    //   "progressPercentage": 40,
+    //   "totalLessons": 2
+    // }
+  ]
+
 
   async function getPlansWithProgress() {
     try {
@@ -16,6 +56,7 @@ const UserOverview = () => {
       );
       if (response) {
         setPlansProgress(response.data.data);
+        setPlansProgress(plans)
         setLoading(false);
       }
     } catch (error) {
@@ -42,8 +83,8 @@ const UserOverview = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      await getPlansWithProgress();
       await getStateStatus();
+      await getPlansWithProgress();
       setLoading(false);
     };
 
@@ -51,25 +92,47 @@ const UserOverview = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div className={style.Overview}>
-          <div className={style.plansContainer}>
-            <h3>Plans Progress</h3>
-            {plansProgress.length > 0 ? (
-              plansProgress.map((plan, i) => (
-                <PlanProgressCrad key={i} title={plan.title} lessons={plan.lessons} value={plan.progressPercentage} index={i} />
-              ))
-            ) : (
-              <div>There are no plans yet.</div>
-            )}
-          </div>
-          <RadialTaskStatus data={status} />
-        </div>
+        <section className={style.Overview}>
+          <DashHead title={WelcomeExpression} subtitle='Always stay organised in your study plan' date={true} image={{ alt: 'college student', src: boy }} />
+
+          <section>
+
+
+          </section>
+          <section className={style.statistics}>
+
+            <section className={style.progress}>
+              <h3>Lessons Progress</h3>
+              < ChartComponent />
+
+            </section>
+            <section className={style.taskStatus}>
+              <h3>Tasks Status</h3>
+              <RadialTaskStatus data={status} />
+            </section>
+            <div className={style.plansContainer}>
+              <h3>Most Active Plans</h3>
+              {plansProgress.length > 0 ? (
+                plansProgress.map((plan, i) => (
+                  <PlanProgressCrad key={i} title={plan.title} lessons={plan.totalLessons} value={plan.progressPercentage} index={i} />
+                ))
+              ) : (
+                <p>There are no plans yet.</p>
+              )}
+            </div>
+
+
+          </section>
+
+
+
+        </section>
       )}
-    </div>
+    </>
   );
 
 };

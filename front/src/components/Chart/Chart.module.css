@@ -1,0 +1,48 @@
+
+.chart-area {
+    position: relative;
+    width: 95%;
+    height: 80%;
+
+  }
+  
+  .chart-area .grid {
+    position: absolute;
+    z-index: 0;
+    bottom: 20px;
+    left: 0;
+    height: 75%;
+    width: 100%;
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent 0% 2.5%,
+        #ffffff 1.5% 2%,
+        transparent 3% 5%
+    );
+  }
+  
+  .chart-area .grid::after {
+    content: "";
+    position: inherit;
+    z-index: -1;
+    top: inherit;
+    bottom: inherit;
+    width: inherit;
+    height: 80%;
+    /* background: rgba(255, 255, 255, 0.28); */
+  }
+
+  .filter{
+    position: absolute;
+    top:0%;
+    right: 0%;
+    z-index: 3;
+  }
+
+  .filter label{
+    font-weight: 400;
+    font-size: 15px;
+  }
+  .filter select{
+    border-radius: 5px;
+  }
