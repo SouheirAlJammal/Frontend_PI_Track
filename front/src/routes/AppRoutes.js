@@ -8,6 +8,8 @@ import Home from '../pages/Home/Home'
 import Task from '../pages/userDashboard/Task/Task.js'
 import UserOverview from '../pages/userDashboard/UserOverview/UserOverview.js'
 import Plans from '../pages/userDashboard/Plan/Plans.js'
+import SinglePlan from '../pages/userDashboard/Plan/SinglePlan.js'
+import Schedule from '../components/Schedule/Schedule.js'
 const AppRoutes = () => {
   return (
     <div>
@@ -24,8 +26,11 @@ const AppRoutes = () => {
           <Route path='overView' element={<UserOverview />} />
           <Route path='tasks' element={<Task />}></Route>
           <Route path='plans' element={<Plans />}></Route>
+          <Route path='plans/plan/:planId' element={<SinglePlan />}></Route>
 
         </Route>
+<Route path='calendar' element={< Schedule/>}></Route>
+
       </Routes>
 
     </div>

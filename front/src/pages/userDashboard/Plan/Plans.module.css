@@ -6,3 +6,28 @@
     background-color: #F5F4F4;
 
 }
+
+/* .plans {
+    margin: calc(8px*2) auto calc(8px*5);
+    display: grid;
+    grid-row-gap: calc(8px*8);
+    grid-column-gap: calc(8px*1);
+    grid-template-columns: repeat(auto-fit, minmax(calc(8px*35), 1fr));
+    justify-items: center;
+  } */
+  
+
+  .plans{
+    margin:30px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;
+    column-gap: 40px;
+    row-gap: 20px;
+  }

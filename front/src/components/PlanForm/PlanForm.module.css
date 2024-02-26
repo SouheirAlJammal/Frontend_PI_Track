@@ -1,0 +1,124 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color-title);
+  }
+  
+  
+  .title {
+    align-self: self-start;
+    border-left: 2px solid var(--primary-color);
+    padding: 0 5px;
+  }
+  
+  .formContainer {
+    width: 40%;
+    height: fit-content;
+  
+  }
+  
+  .formContainer>form {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(246, 246, 246);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+  }
+  
+  .label {
+    margin-bottom: 8px;
+  }
+  
+  
+  .btn {
+    margin-top: 25px;
+    align-self: self-start;
+    background-color: rgb(7, 28, 53) !important;
+    color: #f7f4f4;
+  }
+  
+  .fileUploadWrapperCustom {
+    position: relative;
+    width: 100%;
+    height: 60px;
+  }
+  
+  .fileUploadWrapperCustom:after {
+    content: attr(data-text);
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    padding: 10px 15px;
+    display: block;
+    width: calc(100% - 40px);
+    pointer-events: none;
+    z-index: 20;
+    height: 40px;
+    line-height: 40px;
+    color: #999;
+    border-radius: 5px 10px 10px 5px;
+    font-weight: 300;
+  }
+  
+  .fileUploadWrapperCustom:before {
+    content: 'Upload';
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 60px;
+    background: #4daf7c; /* Default color */
+    color: #fff;
+    font-weight: 700;
+    z-index: 25;
+    font-size: 16px;
+    line-height: 60px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  .fileUploadWrapperCustom:hover:before {
+    background: darken(#4daf7c, 10%);
+  }
+  
+  .fileUploadFieldCustom {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+  }
+  @media (width<900px) {
+    .formContainer {
+      width: 70%;
+      height: fit-content;
+  
+    }
+  }
+  
+  @media (width<500px) {
+    .formContainer {
+      width: 95%;
+      height: fit-content;
+  
+  
+    }
+  }

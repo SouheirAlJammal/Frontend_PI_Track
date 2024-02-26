@@ -1,11 +1,11 @@
-// TaskHeader.js
+
 import React, { useState } from 'react';
 import style from './TaskHeader.module.css';
 
-const TaskHeader = ({ getData, title, subtitle, formComponent }) => {
+const TaskHeader = ({ getData, title, subtitle, children}) => {
   const [sortBy, setSortBy] = useState('Sort By');
   const [openModal, setOpenModal] = useState(false);
-
+ 
   const handleOpenModal = () => {
     setOpenModal(true);
   };
@@ -48,9 +48,7 @@ const TaskHeader = ({ getData, title, subtitle, formComponent }) => {
           </select>
         </section>
       </div>
-      {formComponent && (
-        <formComponent showModal={openModal} handleClose={handleCloseModal} getData={getData} />
-      )}
+      {children && React.cloneElement(children, { showModal: openModal, handleClose: handleCloseModal, getData: getData })}
     </>
   );
 };

@@ -1,4 +1,3 @@
-// Task.js
 import React, { useState, useEffect } from 'react';
 import TaskHeader from '../../../components/taskHeader/TaskHeader';
 import TaskStatus from '../../../components/taskStatus/TaskStatus';
@@ -33,7 +32,9 @@ const Task = () => {
   return (
     <div className={style.tasks}>
       <DashHead title="Your task management area" subtitle="make your day more organized" date={true} />
-      <TaskHeader getData={getTasks} title="Task" subtitle="Start creating your tasks!" formComponent={TaskForm} />
+      <TaskHeader getData={getTasks} title="Task" subtitle="Start creating your task !">
+        <TaskForm />
+      </TaskHeader>
       <section className={style.statusContainer}>
         <TaskStatus nbr={20} status="Pending" color="#EBD0C9" />
         <TaskStatus nbr={3} status="Completed" color="#C8DFE7" />

@@ -4,9 +4,10 @@ import TaskHeader from '../../../components/taskHeader/TaskHeader'
 import style from './Plans.module.css'
 import axios from 'axios'
 import PlanForm from '../../../components/PlanForm/PlanForm'
+import PlanCard from '../../../components/PlanCard/PlanCard'
 const Plans = () => {
 
-      //get Alll Tasks 
+      //get Alll plans 
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
  
@@ -34,8 +35,20 @@ const Plans = () => {
   return (
     <div className={style.plansPage}>
         <DashHead title='Your Plan management area' subtitle='make your day more organised' date={true} />
-        <TaskHeader getData={getPlans} title="Plan" subtitle="Start creating your Plans!" formComponent={PlanForm} />
+        <TaskHeader getData={getPlans} title="Plan" subtitle="Start creating your Plan!" >
+          <PlanForm/>
+          </TaskHeader>
+        {loading ? (
+        <div>Loadingggggggggg</div>
+      ) : (
+        <section className={style.plans}>
+        {plans.map((article, index) => (
+          <PlanCard key={index} article={article} animationOrder={index + 1} index={index}  />
+        ))}
+      </section>
+      )}
 
+     
     </div>
   )
 }

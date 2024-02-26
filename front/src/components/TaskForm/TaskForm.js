@@ -1,4 +1,3 @@
-// TaskForm.jsx
 import React, { useState } from 'react';
 import { Modal, Button, TextField } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
@@ -7,8 +6,9 @@ import axios from 'axios';
 import { useUserStore } from '../../Store';
 
 const TaskForm = ({ showModal, handleClose ,getData}) => {
+
   const { control, handleSubmit, formState: { errors } } = useForm();
-  const [loading, setLoading] = useState(false); // Corrected initial state
+  const [loading, setLoading] = useState(false); 
   const { user } = useUserStore.getState();
   const [newTask, setNewTask] = useState({
     title: '',
@@ -16,7 +16,7 @@ const TaskForm = ({ showModal, handleClose ,getData}) => {
     startDate: '',
     endDate: '',
     status: '',
-    userId: user.id || '' // Adjusted the default value
+    userId: user.id || '' 
   });
 
   const onSubmit = async (data) => {
