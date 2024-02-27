@@ -1,0 +1,55 @@
+.MuiTableRow-root>* {
+    padding:10px ;
+}
+
+.MuiTableRow-root.MuiTableRow-head>* {
+    font-weight: bold !important;
+}
+
+
+.Table td,
+th {
+    border: none !important;
+}
+
+
+
+.css-1ex1afd-MuiTableCell-root{
+    border: none !important;
+}
+
+.MuiTableRow-root{
+    margin: 2px !important;
+}
+
+
+.Table:first-child {
+    border-radius: 0.7rem !important;
+
+}
+  
+
+.status {
+    font-size: 12px ;
+    font-weight: 600;
+    color:rgb(218, 218, 218);
+}
+
+
+ .tableTitle{
+    font-weight: 700 !important;
+    font-size: 19px !important;
+    font-family: 'Poppins' !important;
+    margin:auto !important;
+    color:var(--font-color-title)
+
+ }
+@media (max-width: 600px) {
+
+    .Box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+ 
+  }

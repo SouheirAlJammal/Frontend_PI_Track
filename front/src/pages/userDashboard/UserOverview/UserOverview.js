@@ -7,6 +7,7 @@ import DashHead from '../../../components/DashHead/DashHead'
 import { useUserStore } from '../../../Store';
 import boy from '../../../assets/studyBoy.png'
 import ChartComponent from '../../../components/Chart/Chart';
+import TodayTask from '../../../components/TodayTask/TodayTask'
 const UserOverview = () => {
   const { user } = useUserStore();
   const [plansProgress, setPlansProgress] = useState([]);
@@ -49,7 +50,28 @@ const UserOverview = () => {
   ]
 
 
+
+  const [tasks, setTasks] = useState([]);
+
+  async function getTasks() {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_ENDPOINT}api/tasks/`);
+      if (response) {
+        setTasks(response.data.data);
+        setLoading(false);
+        console.log(response.data.data);
+      }
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  }
+
+
+
   async function getPlansWithProgress() {
+
+  
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_ENDPOINT}api/statistics/plansWithProgress`
@@ -85,6 +107,7 @@ const UserOverview = () => {
       setLoading(true);
       await getStateStatus();
       await getPlansWithProgress();
+      await getTasks()
       setLoading(false);
     };
 
@@ -114,6 +137,7 @@ const UserOverview = () => {
               <h3>Tasks Status</h3>
               <RadialTaskStatus data={status} />
             </section>
+            <TodayTask rows={tasks}/>
             <div className={style.plansContainer}>
               <h3>Most Active Plans</h3>
               {plansProgress.length > 0 ? (

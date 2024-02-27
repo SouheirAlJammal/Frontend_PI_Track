@@ -6,6 +6,7 @@ const PlanCard = ({ article, animationOrder }) => {
 let progress
   if(article.totalMins !==0){ progress = (article.participants && article.participants.length > 0) ? parseFloat((article.participants[0].achievedTotalMins / article.totalMins * 100).toFixed(2)) : 0}
   else progress=0;
+  console.log(progress)
   return (
     <div className={styles.article} style={{ "--animation-order": animationOrder }}>
       <Link className={styles.link} to={`plan/${article._id}`}>

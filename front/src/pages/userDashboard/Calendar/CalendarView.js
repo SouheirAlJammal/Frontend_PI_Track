@@ -11,7 +11,7 @@ import axios from 'axios';
 import style from './CalendarView.module.css';
 
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
-import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
+
 
 const localizer = momentLocalizer(moment);
 const DnDCalendar = withDragAndDrop(Calendar);
@@ -50,15 +50,12 @@ const CalendarView = () => {
   };
 
   const onEventDrop = async ({ event, start, end }) => {
-    // Update the event's start and end dates
     const updatedEvent = { ...event, startDate: start, endDate: end };
 
     try {
-      // Send a request to update the event in the backend
       const response = await axios.patch(`${process.env.REACT_APP_ENDPOINT}api/tasks/update/${event.id}`, updatedEvent);
 
       if (response && response.data) {
-        // Update the events in the state with the updated event
         const updatedEvents = events.map((ev) => (ev.id === event.id ? response.data.data : ev));
         setEvents(updatedEvents);
       }
@@ -68,7 +65,7 @@ const CalendarView = () => {
   };
 
   return (
-    <Box height="100vh" className={style.calendar}>
+    <Box height="100vh" className={style.calendar} >
      <DndProvider backend={HTML5Backend}>
   <DnDCalendar
     onEventDrop={onEventDrop}
@@ -81,6 +78,7 @@ const CalendarView = () => {
     components={{
       event: (eventProps) => <TaskEvent task={eventProps.event} />,
     }}
+    draggableAccessor={(event) => true}
   />
 </DndProvider>
 

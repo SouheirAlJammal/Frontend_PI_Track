@@ -38,7 +38,7 @@ export default function SingleTask({ task, id ,getTasks}) {
         sx={{
           '.css-m9glnp-MuiPaper-root-MuiDialog-paper': {
             backgroundColor: '#F5F4F4 !important',
-          },
+          }
         }}
       >
         <AppBar sx={{ backgroundColor: 'rgb(7,28,53)', borderEndStartRadius: '10px', borderEndEndRadius: '10px', width: '100%', margin: ' 0 auto', position: 'relative', border: 'none', height: '20vh', zIndex: '0' }}>

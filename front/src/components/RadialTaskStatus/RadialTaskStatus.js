@@ -4,6 +4,7 @@ import ReactApexChart from 'react-apexcharts';
 const RadialTaskStatus = ({data}) => {
      const TasksData = Object.keys(data);
 const values = TasksData.map(key => data[key]);
+console.log('kkkkkkkk',values)
 const total = values.reduce((sum, value) => sum + value, 0);
   const [chartData, setChartData] = useState({
     series: [...values],

@@ -28,8 +28,8 @@ import CardTask from '../../../components/CardTask/CardTask';
 
 const TaskEvent = ({ task }) => {
   const [{ isDragging }, drag] = useDrag({
-    type: 'CARD_TASK',  // Unique identifier for the draggable type
-    item: { task },  // Data that will be passed to the drop target
+    type: 'CARD_TASK',  
+    item: { task }, 
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -39,6 +39,7 @@ console.log(task,'hellloooooooooooooooo')
     <div
       ref={drag}
       className={`${styles['ag-courses_item']} ${isDragging ? styles.dragging : ''}`}
+
     >
       <CardTask task={task}  />
     </div>

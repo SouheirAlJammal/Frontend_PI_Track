@@ -28,8 +28,8 @@
 .ag-courses_item {
     /* -ms-flex-preferred-size: calc(33.33333% - 30px);
     flex-basis: calc(33.33333% - 30px); */
-    width: 100%;
-    /* width: 280px; */
+    /* width: 100%; */
+    width: 280px;
     margin: 0 0 30px 0;
     color: var(--font-color-title);
     overflow: hidden;

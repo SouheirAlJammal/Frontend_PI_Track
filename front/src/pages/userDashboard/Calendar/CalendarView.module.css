@@ -3,5 +3,19 @@
     width: 100%;
     height: 100vh;
     margin-top: 0;
-    background-color: #F5F4F4;
+    background-color: #ffffff;
+}
+
+.rbc-event, .rbc-day-slot .rbc-background-event {
+    border: none;
+    box-sizing: border-box;
+    box-shadow: none;
+    margin: 0;
+    padding: 2px 5px;
+    background-color: #464c51 !important;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
 }
