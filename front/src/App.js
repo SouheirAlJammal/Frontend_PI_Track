@@ -23,6 +23,7 @@ fetchUser()
     <div className="App">
    <AppRoutes/>
     </div>
+
   );
 }
 
