@@ -9,7 +9,7 @@
 }
 
 .header {
-    border-left: 4px solid var(--secondary-color);
+    border-left: 4px solid rgb(226, 17, 157);
     padding: 10px;
     width: 70%;
     height: 74px;

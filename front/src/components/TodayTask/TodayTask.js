@@ -10,8 +10,6 @@ import {
   TableRow,
   Paper,
   TablePagination,
-  MenuItem,
-  Select,
 } from "@mui/material";
 import style from "./TodayTask.module.css";
 
@@ -63,8 +61,8 @@ function TodayTask({ rows }) {
       };
     } else if (status === "Pending") {
       return {
-        color: "#DA1D1D",
-        backgroundColor: 'rgba(218, 29, 29,0.3)',
+        color: "rgb(226, 17, 157)",
+        backgroundColor: 'rgba(226, 17, 157,0.3)',
         borderRadius: '15px',
         padding: "5px 15px"
       };

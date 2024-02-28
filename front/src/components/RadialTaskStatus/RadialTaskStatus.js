@@ -42,7 +42,7 @@ const total = values.reduce((sum, value) => sum + value, 0);
           radius: 12, 
         },
       },
-      colors: ['#DA1D1D', 'rgba(200,223,231,0.8)', '#E6A290'],
+      colors: ['rgb(247, 20, 172)', 'rgba(200,223,231,0.8)', '#E6A290'],
     },
   });
 

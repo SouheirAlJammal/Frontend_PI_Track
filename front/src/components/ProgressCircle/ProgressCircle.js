@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 export default function ProgressCircle(props) {
   return (
     <Box sx={{ position:'absolute',right:'30px',top:'20%', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate" {...props} sx={{color:'#DA1D1D'}}/>
+      <CircularProgress variant="determinate" {...props} sx={{color:'rgb(247, 20, 172)'}}/>
       <Box
         sx={{
           top: 0,

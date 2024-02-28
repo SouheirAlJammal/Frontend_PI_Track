@@ -75,7 +75,7 @@ const Chart = () => {
         data: getData(),
       },
     ],
-    colors: ['#DA1D1D'],
+    colors: ['rgb(226, 17, 157)'],
     fill: {
       type: 'gradient',
       gradient: {
@@ -98,7 +98,7 @@ const Chart = () => {
       },
     },
     stroke: {
-      colors: ['red'],
+      colors: ['rgb(247, 20, 172)'],
       lineCap: 'round',
     },
     grid: {
@@ -111,7 +111,7 @@ const Chart = () => {
       },
     },
     markers: {
-      strokeColors: '#DA1D1D',
+      strokeColors: 'rgb(247, 20, 172)',
     },
     yaxis: {
         show: true, 

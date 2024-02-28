@@ -34,18 +34,7 @@ const UserOverview = () => {
       "progressPercentage": 40,
       "totalLessons": 2
     },
-    // {
-    //   "planId": "6134f4ab93be59001f2e01e1",
-    //   "title": "Sample Plan 2",
-    //   "progressPercentage": 40,
-    //   "totalLessons": 2
-    // },
-    // {
-    //   "planId": "6134f4ab93be59001f2e01e1",
-    //   "title": "Sample Plan 2",
-    //   "progressPercentage": 40,
-    //   "totalLessons": 2
-    // }
+ 
   ]
 
 
