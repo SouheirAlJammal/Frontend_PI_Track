@@ -32,25 +32,23 @@ const Plans = () => {
     getPlans();
   }, []);
 
-  return (
+  return  (
     <div className={style.plansPage}>
-        <DashHead title='Your Plan management area' subtitle='make your day more organised' date={true} />
-        <TaskHeader getData={getPlans} title="Plan" subtitle="Start creating your Plan!" >
-          <PlanForm/>
-          </TaskHeader>
-        {loading ? (
+      <DashHead title='Your Plan management area' subtitle='make your day more organised' date={true} />
+      {loading ? (
         <div>Loadingggggggggg</div>
       ) : (
-        <section className={style.plans}>
+        <TaskHeader getData={getPlans} title="Plan" subtitle="Start creating your Plan!">
+          <PlanForm />
+        </TaskHeader>
+      )}
+      <section className={style.plans}>
         {plans.map((article, index) => (
-          <PlanCard key={index} article={article} animationOrder={index + 1} index={index}  />
+          <PlanCard key={index} article={article} animationOrder={index + 1} index={index} />
         ))}
       </section>
-      )}
-
-     
     </div>
-  )
-}
+  );   }  
+
 
 export default Plans

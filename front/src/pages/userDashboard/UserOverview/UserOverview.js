@@ -5,7 +5,6 @@ import RadialTaskStatus from '../../../components/RadialTaskStatus/RadialTaskSta
 import axios from 'axios';
 import DashHead from '../../../components/DashHead/DashHead'
 import { useUserStore } from '../../../Store';
-import boy from '../../../assets/studyBoy.png'
 import ChartComponent from '../../../components/Chart/Chart';
 import TodayTask from '../../../components/TodayTask/TodayTask'
 const UserOverview = () => {
@@ -116,48 +115,43 @@ const UserOverview = () => {
 
   return (
     <>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <section className={style.Overview}>
-          <DashHead title={WelcomeExpression} subtitle='Always stay organised in your study plan' date={true} image={{ alt: 'college student', src: boy }} />
-
+      <section className={style.Overview}>
+        <DashHead title={loading ? 'Loading...' : WelcomeExpression} subtitle='Always stay organised in your study plan' date={true} />
+  
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
           <section>
-
-
-          </section>
-          <section className={style.statistics}>
-
-            <section className={style.progress}>
-              <h3>Lessons Progress</h3>
-              < ChartComponent />
-
+            {/* Your content here */}
+            <section className={style.statistics}>
+              <section className={style.progress}>
+                <h3>Lessons Progress</h3>
+                <ChartComponent />
+              </section>
+  
+              <section className={style.taskStatus}>
+                <h3>Tasks Status</h3>
+                <RadialTaskStatus data={status} />
+              </section>
+  
+              <TodayTask rows={tasks} />
+              <div className={style.plansContainer}>
+                <h3>Most Active Plans</h3>
+                {plansProgress.length > 0 ? (
+                  plansProgress.map((plan, i) => (
+                    <PlanProgressCrad key={i} title={plan.title} lessons={plan.totalLessons} value={plan.progressPercentage} index={i} />
+                  ))
+                ) : (
+                  <p>There are no plans yet.</p>
+                )}
+              </div>
             </section>
-            <section className={style.taskStatus}>
-              <h3>Tasks Status</h3>
-              <RadialTaskStatus data={status} />
-            </section>
-            <TodayTask rows={tasks}/>
-            <div className={style.plansContainer}>
-              <h3>Most Active Plans</h3>
-              {plansProgress.length > 0 ? (
-                plansProgress.map((plan, i) => (
-                  <PlanProgressCrad key={i} title={plan.title} lessons={plan.totalLessons} value={plan.progressPercentage} index={i} />
-                ))
-              ) : (
-                <p>There are no plans yet.</p>
-              )}
-            </div>
-
-
           </section>
-
-
-
-        </section>
-      )}
+        )}
+      </section>
     </>
   );
+  
 
 };
 

@@ -10,30 +10,7 @@ let progress
   return (
     <div className={styles.article} style={{ "--animation-order": animationOrder }}>
       <Link className={styles.link} to={`plan/${article._id}`}>
-        <div className={`${styles.content} ${styles.contentLhs}`}>
-          <h2 className={styles.title}>{article.title}</h2>
-          <p className={styles.description}>{(article.description.length > 50) ? (article.description.substring(0, 50) + '...') : article.description}</p>
-          <p className={styles.description2}>{article.lessonsId.length} Lessons {progress !== undefined ? `/${progress}%` : ''}</p>
-          <LinearProgress
-            variant="determinate"
-            value={progress}
-            style={{
-              backgroundColor: progress < 100 ? '#ececee' : '#89bf95!important',
-              marginTop: '30px',
-              height: '6px',
-              borderRadius: '10px',
-              width: '80%',
-              marginLeft: '20px'
-            }}
-            sx={{
-              '.css-5xe99f-MuiLinearProgress-bar1': {
-                backgroundColor: '#da1d1d !important',
-              }
-            }}
-          />
-      
-        </div>
-        <div className={`${styles.content} ${styles.contentRhs}`} aria-hidden="true">
+        <div className={`${styles.content}`} aria-hidden="true">
           <h2 className={styles.title}>{article.title}</h2>
           <p className={styles.description}> {(article.description.length > 50) ? (article.description.substring(0, 50) + '...') : article.description}</p>
           <p className={styles.description2}>{article.lessonsId.length} Lessons {progress !== undefined ? `/${progress}%` : ''}</p>
@@ -41,7 +18,7 @@ let progress
             variant="determinate"
             value={progress}
             style={{
-              backgroundColor: progress < 100 ? '#ececee' : '#89bf95!important',
+              backgroundColor: progress < 100 ? '#EAEAEA' : '#89bf95!important',
               marginTop: '30px',
               height: '6px',
               borderRadius: '10px',
@@ -50,7 +27,7 @@ let progress
             }}
             sx={{
               '.css-5xe99f-MuiLinearProgress-bar1': {
-                backgroundColor: '#da1d1d !important',
+                backgroundColor: '#C8DFE7 !important',
               }
             }}
           />

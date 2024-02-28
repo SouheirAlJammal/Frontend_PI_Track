@@ -3,10 +3,14 @@ import style from './SinglePLan.module.css'
 import DashHead from '../../../components/DashHead/DashHead'
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
+import LessonCard from '../../../components/LessonsCard/LessonCard';
+import TaskHeader from '../../../components/taskHeader/TaskHeader';
+import LessonForm from '../../../components/LessonForm/LessonForm';
 const SinglePlan = () => {
 
     //get plan 
     const [plan, setPlan] = useState([]);
+    const [lessons, setLessons] = useState([]);
     const [loading, setLoading] = useState(true);
     let {planId} = useParams()
     async function getPlan() {
@@ -24,16 +28,45 @@ const SinglePlan = () => {
             setLoading(false);
         }
     }
-
+    const getLessons = async () => {
+        try {
+          const response = await axios.get(`${process.env.REACT_APP_ENDPOINT}api/lessons/${planId}`);
+          setLessons(response.data.data);
+        } catch (error) {
+          console.error('Error fetching lessons', error);
+        } finally {
+          setLoading(false);
+        }
+      };
 
     useEffect(() => {
         getPlan();
+        getLessons();
     }, []);
     return (
         <div className={style.container}>
-                  <DashHead title={plan.title} subtitle={plan.description} date={true} />
-
-        </div>
+        <DashHead title={plan.title} subtitle={plan.description} date={true} />
+  
+        {loading ? (
+          <div>Loading.....</div>
+        ) : (
+          <section className={style.lessons}>
+            <TaskHeader getData={getLessons} title="Lesson" subtitle="Track your daily progresss !">
+             <LessonForm planId={planId}/>
+            </TaskHeader>
+  
+            <section className={style.lessons}>
+              {lessons.map((lesson, index) => (
+                <LessonCard key={index} lesson={lesson} />
+              ))}
+            </section>
+          </section>
+        )}
+  
+        <section className={style.lessonsProgress}>
+     
+        </section>
+      </div>
     )
 }
 
