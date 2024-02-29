@@ -1,21 +1,22 @@
 import React from 'react'
 import style from './LessonCard.module.css'
 import { LinearProgress } from '@mui/material'
-const LessonCard = ({lesson}) => {
+const LessonCard = ({lesson,id}) => {
   console.log('kkkkkkkkkkk',lesson.lessonProgress[0].achievedMins)
   return (
-    <div>
-      <h5 className={style.lessonTitle}>{lesson.title}</h5>
+    <div className={style.container}>
+    <section className={style.Info}>
+      <h4 className={style.lessonTitle}>{lesson.title}</h4>
+      <p className={style.description}>{lesson.description}</p>
       <LinearProgress
             variant="determinate"
             value={lesson.lessonProgress[0].achievedMins || 0}
             style={{
               backgroundColor: '#EAEAEA',
-              marginTop: '30px',
-              height: '6px',
+              height: '7px',
               borderRadius: '10px',
-              marginLeft: '20px',
-              width: '80%'
+              marginTop:'10px',
+              width: '90%'
             }}
             sx={{
               '.css-5xe99f-MuiLinearProgress-bar1': {
@@ -23,12 +24,13 @@ const LessonCard = ({lesson}) => {
               }
             }}
           />
-          <p className={style.status}>{lesson.status}</p>
-          <footer>
-            <p>Total Min {lesson.totalMins}</p>
-            <p>Achieved Mins {lesson.lessonProgress[0].achievedMins}</p>
+          <span>{lesson.lessonProgress[0].achievedMins || 0} %</span>
+          </section>
+          <section className={style.footer}>
+            <p>Total {lesson.totalMins}mins</p>
+            <p>Achieved {lesson.lessonProgress[0].achievedMins}mins</p>
 
-          </footer>
+          </section>
     </div>
   )
 }

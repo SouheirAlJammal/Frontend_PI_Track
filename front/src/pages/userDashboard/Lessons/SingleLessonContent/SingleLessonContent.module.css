@@ -1,0 +1,154 @@
+.article::-webkit-scrollbar {
+  display: none;
+}
+
+
+.article {
+  width: 750px;
+  height: 800px;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -30%);
+  border-radius: 10px;
+  background: rgb(251, 251, 251);
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+  padding: 25px;
+  z-index: 999;
+  color: var(--font-color-title);
+  font-family: "Poppins";
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px
+}
+
+.section,
+.LessonDetails,
+.notesection {
+  width: 100%;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.taskTitle {
+  width: 100%;
+  height: 50px;
+  border-left: 6px solid rgb(226, 17, 157);
+}
+
+.taskTitle input {
+  font-weight: 700;
+  font-size: 16px;
+
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+}
+
+.article .textarea {
+  width: 100%;
+  height: 80px;
+  margin: 10px 0;
+  border: none;
+  resize: vertical;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.article label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.section label {
+  font-weight: 600;
+
+}
+
+.dateContainer {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.LessonDetails h3 {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.link {
+  margin-top: 10px;
+}
+
+.link input {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.dateContainer label {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.dateContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.article input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+
+}
+
+/* .SingleLessonContent_section__feJ8t label {
+font-size: 12px !important;
+font-weight: 500 !important;
+} */
+
+
+.link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.buttons button {
+  padding: 10px;
+  width: 120px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.saveButton {
+  background-color: rgb(7, 28, 53);
+}
+
+.deleteButton {
+  background-color: #da1d1d;
+}

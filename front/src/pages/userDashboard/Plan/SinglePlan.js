@@ -6,6 +6,7 @@ import axios from 'axios'
 import LessonCard from '../../../components/LessonsCard/LessonCard';
 import TaskHeader from '../../../components/taskHeader/TaskHeader';
 import LessonForm from '../../../components/LessonForm/LessonForm';
+import SingleLesson from '../Lessons/SingleLesson/SingleLesson';
 const SinglePlan = () => {
 
     //get plan 
@@ -57,7 +58,7 @@ const SinglePlan = () => {
   
             <section className={style.lessons}>
               {lessons.map((lesson, index) => (
-                <LessonCard key={index} lesson={lesson} />
+                <SingleLesson key={index} lesson={lesson} id={lesson._id} getLessons={getLessons} />
               ))}
             </section>
           </section>

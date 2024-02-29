@@ -4,8 +4,8 @@ import axios from 'axios';
 import { useUserStore } from '../../Store';
 import Button from '@mui/material/Button';
 
-const SingleTaskContent = ({ id, task: { title, description, startDate, endDate, status },onDeleteTask ,getTasks}) => {
-    const { user} = useUserStore();
+const SingleTaskContent = ({ id, task: { title, description, startDate, endDate, status }, onDeleteTask, getTasks }) => {
+    const { user } = useUserStore();
 
     const [formData, setFormData] = useState({
         title: title,
@@ -15,7 +15,7 @@ const SingleTaskContent = ({ id, task: { title, description, startDate, endDate,
         status: status,
         userId: user._id,
     });
-   
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -45,20 +45,20 @@ const SingleTaskContent = ({ id, task: { title, description, startDate, endDate,
 
     const handleSaveChanges = async () => {
         try {
-          const response = await axios.patch(
-            `${process.env.REACT_APP_ENDPOINT}api/tasks/update/${id}`,
-            formData
-          );
-          if (response.status) {
-            console.log('Task updated successfully');
-            onDeleteTask()
-            getTasks()
-          }
+            const response = await axios.patch(
+                `${process.env.REACT_APP_ENDPOINT}api/tasks/update/${id}`,
+                formData
+            );
+            if (response.status) {
+                console.log('Task updated successfully');
+                onDeleteTask()
+                getTasks()
+            }
         } catch (error) {
-          console.error('Error updating task:', error);
+            console.error('Error updating task:', error);
         }
-      };
-    
+    };
+
     return (
         <>
             <article className={Style.article}>
@@ -119,13 +119,13 @@ const SingleTaskContent = ({ id, task: { title, description, startDate, endDate,
                         </select>
                     </label>
                     <footer className={Style.buttons}>
-                    <Button autoFocus onClick={handleSaveChanges} sx={{ backgroundColor: 'rgb(7,28,53)', color: 'white'}}>
-                        Save Changes
-                    </Button>
-                    <button style={{ backgroundColor: '#DA1D1D', padding: '10px', width: '80px', color: 'white', borderRadius: '5px', fontWeight: '500' ,cursor:'pointer',border:'none'}} onClick={handleDeleteTask}>
-                        Delete
-                    </button>
-</footer>
+                        <Button autoFocus onClick={handleSaveChanges} sx={{ backgroundColor: 'rgb(7,28,53)', color: 'white' }}>
+                            Save Changes
+                        </Button>
+                        <button style={{ backgroundColor: '#DA1D1D', padding: '10px', width: '80px', color: 'white', borderRadius: '5px', fontWeight: '500', cursor: 'pointer', border: 'none' }} onClick={handleDeleteTask}>
+                            Delete
+                        </button>
+                    </footer>
                 </section>
             </article>
         </>

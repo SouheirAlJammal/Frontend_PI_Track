@@ -5,3 +5,10 @@
     margin-top: 0;
     background-color: #F5F4F4;
 }
+
+.lessons{
+    display: flex;
+    flex-wrap: wrap;
+    height: 65vh;
+   gap:20px;
+}
