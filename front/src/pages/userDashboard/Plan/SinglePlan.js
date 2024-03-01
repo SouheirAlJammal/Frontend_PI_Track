@@ -7,6 +7,7 @@ import LessonCard from '../../../components/LessonsCard/LessonCard';
 import TaskHeader from '../../../components/taskHeader/TaskHeader';
 import LessonForm from '../../../components/LessonForm/LessonForm';
 import SingleLesson from '../Lessons/SingleLesson/SingleLesson';
+import InvitationForm from '../../../components/Invitation/InvitationForm';
 const SinglePlan = () => {
 
     //get plan 
@@ -40,6 +41,8 @@ const SinglePlan = () => {
         }
       };
 
+
+
     useEffect(() => {
         getPlan();
         getLessons();
@@ -47,7 +50,7 @@ const SinglePlan = () => {
     return (
         <div className={style.container}>
         <DashHead title={plan.title} subtitle={plan.description} date={true} />
-  
+  <InvitationForm planId={planId} />
         {loading ? (
           <div>Loading.....</div>
         ) : (

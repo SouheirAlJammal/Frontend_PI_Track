@@ -10,6 +10,7 @@ import UserOverview from '../pages/userDashboard/UserOverview/UserOverview.js'
 import Plans from '../pages/userDashboard/Plan/Plans.js'
 import SinglePlan from '../pages/userDashboard/Plan/SinglePlan.js'
 import CalendarView from '../pages/userDashboard/Calendar/CalendarView.js'
+import AcceptInvitation from '../components/Invitation/AcceptInvitation.js'
 const AppRoutes = () => {
   return (
     <div>
@@ -27,9 +28,9 @@ const AppRoutes = () => {
           <Route path='tasks' element={<Task />}></Route>
           <Route path='plans' element={<Plans />}></Route>
           <Route path='plans/plan/:planId' element={<SinglePlan />}></Route>
-          <Route path='calendar' element={< CalendarView/>}></Route>
+          <Route path='calendar' element={< CalendarView />}></Route>
         </Route>
-
+        <Route path='/invitation/accept/:planId/:invitationId' element={<AcceptInvitation />}></Route>
       </Routes>
 
     </div>

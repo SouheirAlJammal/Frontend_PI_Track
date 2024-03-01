@@ -1,0 +1,51 @@
+/* accept-invitation.css */
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+.container h2 {
+    color: #333;
+}
+
+.container h3 {
+    color: #009688;
+}
+
+.container p {
+    color: #555;
+}
+
+.container button {
+    background-color: #009688;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #00796b;
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+    }
+}
