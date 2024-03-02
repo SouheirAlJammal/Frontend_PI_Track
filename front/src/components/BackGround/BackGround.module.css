@@ -1,4 +1,4 @@
-.absolute {
+/* .absolute {
     position: absolute;
     display: inline-flex;
     justify-content: center;
@@ -144,4 +144,52 @@
 
 .purple {
     background-color: rgb(226, 17, 157);
+} */
+
+
+
+
+.containerBack{
+     position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    left: 42% !important;
+    width: 68%;
+    height: 100%;
+    top: 20% !important;    
+    inset: 0;
+    z-index: 0;
 }
+
+
+.circle{
+    width: 400px;
+    height: 350px;
+    border-radius: 50%;
+    position: relative;
+    background-color: rgb(226, 17, 157);
+    filter: blur(80px);
+
+ 
+}
+
+.circle1{
+    position: relative;
+    top:10%;
+    left:15%;
+    background-color: rgb(26, 75, 208);
+}
+
+.circle2{
+    position: relative;
+    top:30%;
+    left:2%;
+}
+
+.circle3{
+    position: relative;
+    top:10%;
+    right:14%;
+    background-color: rgb(148, 195, 21);
+}
+

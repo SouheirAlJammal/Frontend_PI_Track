@@ -14,7 +14,7 @@ const Hero = () => {
         <Link to='/dashboard/overView' className={style.link}><button className={style.actionButton}>Get Started <FaArrowRight /></button> </Link>
       </section>
       <img alt='girl-Learner' src={girl} loading='lazy' className={style.img} />
-     <div style={{zIndex:'0'}}> <BackGround/></div>
+     <BackGround/>
     </div>
   )
 }

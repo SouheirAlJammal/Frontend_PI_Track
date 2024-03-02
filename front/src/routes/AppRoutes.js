@@ -16,7 +16,7 @@ const AppRoutes = () => {
     <div>
       <Routes>
         <Route element={<WithFooter />}>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home />} />  
         </Route>
 
         <Route path='/login' element={<Register />} />
@@ -30,7 +30,9 @@ const AppRoutes = () => {
           <Route path='plans/plan/:planId' element={<SinglePlan />}></Route>
           <Route path='calendar' element={< CalendarView />}></Route>
         </Route>
+
         <Route path='/invitation/accept/:planId/:invitationId' element={<AcceptInvitation />}></Route>
+
       </Routes>
 
     </div>

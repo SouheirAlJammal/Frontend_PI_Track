@@ -1,42 +1,58 @@
-/* accept-invitation.css */
-
 .container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    color:var(--font-color-title)
+ 
 }
 
 .container h2 {
     color: #333;
 }
 
-.container h3 {
-    color: #009688;
+.container  h3 {
+    color:var(--font-color-title);
+    margin-bottom: 20px;
 }
 
-.container p {
+.container  p {
     color: #555;
+    margin-bottom: 10px;
 }
 
+.details{
+    margin-top: 20px;
+
+}
 .container button {
-    background-color: #009688;
+    background-color: var(--font-color-title);
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
 .container button:hover {
-    background-color: #00796b;
+    background-color:var(--font-color-title);
 }
 
-/* Responsive styles */
+.container ul li {
+    list-style: none;
+}
+
+.container .description{
+    margin: 20px;
+}
 
 @media (max-width: 768px) {
     .container {
