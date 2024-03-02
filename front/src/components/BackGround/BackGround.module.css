@@ -167,8 +167,8 @@
     height: 350px;
     border-radius: 50%;
     position: relative;
-    background-color: rgb(226, 17, 157);
-    filter: blur(80px);
+    background-color: #E6A290;
+    filter: blur(50px);
 
  
 }
@@ -177,7 +177,7 @@
     position: relative;
     top:10%;
     left:15%;
-    background-color: rgb(26, 75, 208);
+    background-color:#badeeb;
 }
 
 .circle2{
@@ -190,6 +190,6 @@
     position: relative;
     top:10%;
     right:14%;
-    background-color: rgb(148, 195, 21);
+    background-color: rgb(181, 212, 93);
 }
 
