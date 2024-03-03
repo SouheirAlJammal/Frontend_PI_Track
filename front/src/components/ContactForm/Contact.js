@@ -3,6 +3,7 @@ import style from './Contact.module.css';
 import team from '../../assets/team.png';
 import { RiSendPlaneFill } from "react-icons/ri";
 import { Element } from 'react-scroll';
+import BackGround from '../BackGround/BackGround';
 const Contact = () => {
 
   const [formData, setFormData] = useState({
@@ -69,22 +70,9 @@ const Contact = () => {
         </form>
 
         <img alt="contact" src={team} loading="lazy" className={style.image} />
-      </div>
-      {/* <Select
-                defaultValue="Benz"
-                placeholder="Enter Car Brand"
-                sx={{
-                    width: 200,
-                    height: 50,
-                }}
-            >
-                <Option value="mercedes benz">Mercedes Benz</Option>
-                <Option value="tesla">Tesla</Option>
-                <Option value="rolls royce">Rolls Royce</Option>
-                <Option value="bugatti">Bugatti</Option>
-                <Option value="ferrari">Ferrari</Option>
-            </Select> */}
+            </div>
     </Element>
+    
   );
 }
 
