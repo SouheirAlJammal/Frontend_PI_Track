@@ -5,6 +5,7 @@ import style from './Plans.module.css'
 import axios from 'axios'
 import PlanForm from '../../../components/PlanForm/PlanForm'
 import PlanCard from '../../../components/PlanCard/PlanCard'
+import Loader from '../../../components/Loader/Loader'
 const Plans = () => {
 
       //get Alll plans 
@@ -36,7 +37,7 @@ const Plans = () => {
     <div className={style.plansPage}>
       <DashHead title='Your Plan management area' subtitle='make your day more organised' date={true} />
       {loading ? (
-        <div>Loadingggggggggg</div>
+      <Loader/>
       ) : (
         <TaskHeader getData={getPlans} title="Plan" subtitle="Start creating your Plan!">
           <PlanForm />

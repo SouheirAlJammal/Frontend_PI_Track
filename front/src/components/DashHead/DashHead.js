@@ -5,7 +5,6 @@ import AvatarGroup from '@mui/material/AvatarGroup';
 import PopupForm from '../Invitation/PopupForm';
 const DashHead = ({ title, subtitle, date, followers }) => {
     const [currentDate, setCurrentDate] = useState('');
-
     useEffect(() => {
         if (date) {
 

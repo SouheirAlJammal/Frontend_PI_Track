@@ -7,6 +7,8 @@ import DashHead from '../../../components/DashHead/DashHead'
 import { useUserStore } from '../../../Store';
 import ChartComponent from '../../../components/Chart/Chart';
 import TodayTask from '../../../components/TodayTask/TodayTask'
+import Loader from '../../../components/Loader/Loader'
+
 const UserOverview = () => {
   const { user } = useUserStore();
   const [plansProgress, setPlansProgress] = useState([]);
@@ -108,7 +110,7 @@ const UserOverview = () => {
         <DashHead title={loading ? 'Loading...' : WelcomeExpression} subtitle='Always stay organised in your study plan' date={true} />
   
         {loading ? (
-          <div>Loading...</div>
+       <Loader/>
         ) : (
           <section>
             {/* Your content here */}

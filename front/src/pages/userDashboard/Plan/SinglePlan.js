@@ -7,7 +7,8 @@ import LessonCard from '../../../components/LessonsCard/LessonCard';
 import TaskHeader from '../../../components/taskHeader/TaskHeader';
 import LessonForm from '../../../components/LessonForm/LessonForm';
 import SingleLesson from '../Lessons/SingleLesson/SingleLesson';
-import InvitationForm from '../../../components/Invitation/InvitationForm';
+import Loader from '../../../components/Loader/Loader';
+
 const SinglePlan = () => {
 
   //get plan 
@@ -65,7 +66,7 @@ const SinglePlan = () => {
   return (
     <div className={style.container}>
       {loading ? (
-        <div>Loading.....</div>
+       <Loader/>
       ) : (
         <>
           <DashHead title={plan.title} subtitle={plan.description} date={true} followers={followers} />

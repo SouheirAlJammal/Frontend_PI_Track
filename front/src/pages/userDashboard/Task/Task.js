@@ -6,7 +6,7 @@ import DashHead from '../../../components/DashHead/DashHead';
 import axios from 'axios';
 import SingleTask from './SingleTask';
 import TaskForm from '../../../components/TaskForm/TaskForm';
-
+import Loader from '../../../components/Loader/Loader';
 const Task = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,7 +41,7 @@ const Task = () => {
       </section>
 
       {loading ? (
-        <div>Loadingggggggggg</div>
+     <Loader/>
       ) : (
         <section className={style.tasksContainer}>
           {tasks.map((task, i) => (
