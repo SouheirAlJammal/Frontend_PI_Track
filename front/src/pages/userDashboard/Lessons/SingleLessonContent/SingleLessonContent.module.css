@@ -55,9 +55,11 @@
   height: 80px;
   margin: 10px 0;
   border: none;
-  resize: vertical;
   padding: 15px;
   border-radius: 5px;
+  padding: 10px;
+  resize: vertical;
+  background-color: rgb(236, 236, 236, 0.5);
 }
 
 .article label {

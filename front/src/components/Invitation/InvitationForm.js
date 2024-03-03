@@ -5,7 +5,7 @@ const InvitationForm = ({ planId }) => {
   console.log(planId)
   const [formData, setFormData] = useState({
     email: '',
-    role: 'editor',
+    role: 'follower',
   });
   const [error, setError] = useState('');
 
@@ -41,20 +41,22 @@ const InvitationForm = ({ planId }) => {
   };
 
   const handleChange = (e) => {
+    e.preventDefault()
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
     <form className={style.form}>
-      <label>Email:</label>
+      <label>Email</label>
       <input
         type="email"
         name="email"
         value={formData.email}
         onChange={handleChange}
+        placeholder='Email'
       />
 
-      <label>Role:</label>
+      <label>Role</label>
       <select name="role" value={formData.role} onChange={handleChange}>
         <option value="editor">Editor</option>
         <option value="follower">Follower</option>

@@ -9,17 +9,18 @@ import IconButton from '@mui/material/IconButton';
 import { useUserStore } from '../../../../Store';
 import { FaPencilAlt } from "react-icons/fa";
 
-const SingleLessonContent = ({ lesson, OnDeleteLesson, getLessons, id }) => {
+const SingleLessonContent = ({ lesson, onDeleteLesson, getLessons, id }) => {
   const { user } = useUserStore();
-  const { control, handleSubmit, setValue, formState: { errors } } = useForm({
+  const { control, handleSubmit, setValue, formState: { errors },getValues } = useForm({
     defaultValues: {
       title: lesson.title,
       description: lesson.description,
       totalMins: lesson.totalMins,
       userId: user._id,
       resources: lesson.resources,
-      achievedMins: lesson.lessonProgress[0]?.achievedMins || 0,
-      lessonProgress: lesson.lessonProgress,
+      achievedMins: (lesson.lessonProgress[0]?.achievedMins )|| 0,
+      // lessonProgress: lesson.lessonProgress,
+      notes:(lesson.lessonProgress[0]?.notes )|| '',
     },
   });
   const { fields, append, remove } = useFieldArray({
@@ -34,7 +35,7 @@ const SingleLessonContent = ({ lesson, OnDeleteLesson, getLessons, id }) => {
       );
       if (response.status === 200) {
         console.log('Lesson deleted successfully');
-        OnDeleteLesson();
+        onDeleteLesson();
         getLessons();
       }
     } catch (error) {
@@ -46,11 +47,30 @@ const SingleLessonContent = ({ lesson, OnDeleteLesson, getLessons, id }) => {
     try {
       const response = await axios.patch(
         `${process.env.REACT_APP_ENDPOINT}api/lessons/edit/${id}`,
-        control.getValues()
+        getValues()
       );
       if (response.status === 200) {
         console.log('Lesson updated successfully');
-        OnDeleteLesson();
+        onDeleteLesson();
+        getLessons();
+      }
+    } catch (error) {
+      console.error('Error updating Lesson:', error);
+    }
+
+    try {
+      console.log('testtttttttttttt',getValues('achievedMins'))
+      const response = await axios.patch(
+        `${process.env.REACT_APP_ENDPOINT}api/lessons/updateProgress`,
+      {
+        lessonId:lesson._id,
+        achievedMins:getValues('achievedMins'),
+        notes:getValues('notes')
+      }
+      );
+      if (response.status === 200) {
+        console.log('Lesson progress updated successfully');
+        onDeleteLesson();
         getLessons();
       }
     } catch (error) {
@@ -85,7 +105,7 @@ const SingleLessonContent = ({ lesson, OnDeleteLesson, getLessons, id }) => {
           <h3>Lesson Details</h3>
 
           <section className={Style.dateContainer}>
-            <label htmlFor="totalTime">Total Time
+            <label htmlFor="totalTime">Total Duration
               <input
                 type="text"
                 id="totalTime"
@@ -95,7 +115,7 @@ const SingleLessonContent = ({ lesson, OnDeleteLesson, getLessons, id }) => {
             {/* Display totalMins error */}
             <p className="error">{errors.totalMins && errors.totalMins.message}</p>
 
-            <label htmlFor="achievedTime">Total Duration
+            <label htmlFor="achievedTime">Achieved Time
               <input
                 type="text"
                 id="achievedTime"
@@ -103,13 +123,13 @@ const SingleLessonContent = ({ lesson, OnDeleteLesson, getLessons, id }) => {
                 {...control.register('achievedMins')}
               />
             </label>
-            <label htmlFor="remainingTime">Achieved
+            <label htmlFor="remainingTime">Remaining Time
               <input
                 type="text"
                 id="remainingTime"
                 name="remainingTime"
                 disabled
-                defaultValue="0"
+                defaultValue={getValues('totalMins')-getValues('achievedMins')}
               />
             </label>
           </section>
@@ -150,7 +170,7 @@ const SingleLessonContent = ({ lesson, OnDeleteLesson, getLessons, id }) => {
             <textarea
               className={`${Style.edit} ${Style.textarea}`}
               name='notes'
-              {...control.register('lessonProgress.0.notes')}
+              {...control.register('notes')}
             />
           </label>
         </section>

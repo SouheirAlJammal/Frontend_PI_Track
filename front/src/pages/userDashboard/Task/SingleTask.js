@@ -43,14 +43,6 @@ export default function SingleTask({ task, id ,getTasks}) {
       >
         <AppBar sx={{ backgroundColor: 'rgb(7,28,53)', borderEndStartRadius: '10px', borderEndEndRadius: '10px', width: '100%', margin: ' 0 auto', position: 'relative', border: 'none', height: '20vh', zIndex: '0' }}>
           <Toolbar>
-            {/* <IconButton
-              edge="start"
-              color="red"
-              onClick={handleClose}
-              aria-label="close"
-            >
-              <CloseIcon style={{ backgroundColor: 'white', borderRadius: '50%', width: '40px', height: '40px' }} />
-            </IconButton> */}
             <IconButton
               edge="start"
               color="inherit"

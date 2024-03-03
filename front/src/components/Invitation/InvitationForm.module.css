@@ -1,5 +1,37 @@
-.form{
+.form {
     display: flex;
-    margin:10px
+    flex-direction: column;
+    margin: 10px;
+    width: 100%;
+    margin: 20px auto;
+    gap: 10px;
 }
 
+
+.form label {
+    display: none;
+}
+
+.form input,
+.form select {
+    height: 50px;
+    padding: 8px;
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+    border:1px solid gray;
+    color:gray
+}
+
+.form button {
+    border-radius: 5px;
+    padding: 8px;
+    border: none;
+    background-color: rgb(7, 28, 53);
+    color: white;
+    font-size: 16px;
+    height: 50px;
+    width: 130px;
+    font-weight: 500;
+    cursor: pointer;
+}

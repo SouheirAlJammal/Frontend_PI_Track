@@ -119,7 +119,7 @@ const SingleTaskContent = ({ id, task: { title, description, startDate, endDate,
                         </select>
                     </label>
                     <footer className={Style.buttons}>
-                        <Button autoFocus onClick={handleSaveChanges} sx={{ backgroundColor: 'rgb(7,28,53)', color: 'white' }}>
+                        <Button autoFocus onClick={handleSaveChanges} sx={{ backgroundColor: 'rgb(7,28,53)', color: 'white' }} className={Style.saveButton}>
                             Save Changes
                         </Button>
                         <button style={{ backgroundColor: '#DA1D1D', padding: '10px', width: '80px', color: 'white', borderRadius: '5px', fontWeight: '500', cursor: 'pointer', border: 'none' }} onClick={handleDeleteTask}>

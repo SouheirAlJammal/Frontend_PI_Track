@@ -132,6 +132,11 @@
     width: 100%;
     margin-top: 20px;
 }
+
+.saveButton:hover{
+    background-color: rgba(7, 28, 53, 0.8);
+
+}
 .taskTitle input {
     background-color: transparent;
     padding: 5px;
