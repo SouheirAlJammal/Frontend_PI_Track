@@ -10,6 +10,7 @@
 
 .img {
     display: block;
+    width: auto;
     margin-left: 32px;
     margin-bottom: -28px;
     filter: drop-shadow(10px 10px 5px rgb(204, 204, 204));
