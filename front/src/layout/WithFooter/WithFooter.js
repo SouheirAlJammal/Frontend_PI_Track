@@ -8,6 +8,7 @@ const WithFooter = () => {
       <NavBar/>
       <Outlet/>
       <Footer/>
+
     </div>
   )
 }

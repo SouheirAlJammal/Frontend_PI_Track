@@ -3,7 +3,7 @@ import style from './Contact.module.css';
 import team from '../../assets/team.png';
 import { RiSendPlaneFill } from "react-icons/ri";
 import { Element } from 'react-scroll';
-import BackGround from '../BackGround/BackGround';
+import axios from 'axios';
 const Contact = () => {
 
   const [formData, setFormData] = useState({
@@ -13,10 +13,10 @@ const Contact = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { id, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [id]: value,
     }));
   };
 
@@ -24,7 +24,10 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      // await sendingMail(formData);
+     await axios.post(
+        `${process.env.REACT_APP_ENDPOINT}api/users/contactMail`,
+       {...formData}
+      );
       setFormData({
         name: '',
         email: '',
