@@ -80,7 +80,7 @@ function TodayTask({ rows }) {
   return (
     <div
       style={{
-        width: "74%",
+        width: "100%",
         // border: "1px solid #D9D9D9",
         // margin: "10px",
         backgroundColor: "hsl(0, 7%, 97%)",
@@ -120,7 +120,10 @@ function TodayTask({ rows }) {
             padding:'10px',
             '&:hover': {
               boxShadow: '0 10px 10px 0px rgb(218, 218, 218)',
-              
+            
+            },
+            '.css-1ygcj2i-MuiTableCell-root':{
+              fontWeight:'600 !important'
             }
           }}}>
           <TableHead>
@@ -138,7 +141,7 @@ function TodayTask({ rows }) {
                 sx={{ "&: -child td": { border: 0, background: "red" } }}
               >
                 <TableCell>{row.title}</TableCell>
-                <TableCell>{row.description}</TableCell>
+                <TableCell>{row.description.substring(0, 80) + '...'}</TableCell>
                 <TableCell>
                   {" "}
                   <span className={style.status} style={makeStyle(row.status)}>

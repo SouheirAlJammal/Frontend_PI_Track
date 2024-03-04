@@ -199,6 +199,7 @@ header .image-text .profession {
 .menu-bar .bottom-content {
   color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-top: 1px solid rgb(120, 110, 110);
@@ -208,7 +209,7 @@ header .image-text .profession {
 
 .menu-bar .bottom-content .logout {
 
-  height: 80%;
+  /* height: 80%; */
   text-align: center;
   width: 180px;
   display: flex;
@@ -218,7 +219,30 @@ header .image-text .profession {
   cursor: pointer;
 }
 
+.menu-bar .bottom-content .profile {
 
+  text-align: center;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap:10px;
+  border-radius: 6px;
+  padding:10px 0;
+  cursor: pointer;
+}
+
+.sidebar.close .menu-bar .bottom-content .profile {
+
+  text-align: center;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  border-radius: 6px;
+  padding:10px 0;
+  cursor: pointer;
+}
 .menu-bar .bottom-content .logout a:hover .icon, .menu-bar .bottom-content .logout a:hover .text{
   color: rgb(255, 0, 0);
 }
@@ -273,45 +297,5 @@ header .image-text .profession {
   width: calc(100% - 80px);
 }
 
-@media (width<900px){
-
-
-  .sidebar {
-    position: fixed;
-    top: 2%;
-    left:1%;
-   
-  }
-  .sidebar.close {
-    position: fixed;
-    top: 2%;
-    left: -75px;
-   
-  }
-
-  .outletWrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 95%;
-    /* height: 100vh; */
-    /* width: calc(100% - 0);
-    transition: all 0.3s ease; */
-    overflow: hidden;
-    z-index: -1;
-  
-  }
-  
-  
-  .sidebar.close~.outletWrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* height: 100vh; */
-    width: calc(100%-0);
-    z-index: -1;
-
-  }
-}
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stick+No+Bills:wght@200..800&display=swap')

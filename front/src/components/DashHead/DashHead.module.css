@@ -35,19 +35,19 @@ background-color: black;
 
 @media (width<1000px){
     .title{
-            font-size: 28px;
+            font-size: 24px;
         
     }
 }
 
-@media (width<500px){
+@media (width<550px){
     .title{
             font-size: 20px;
         
     }
 
     .subtitle{
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
@@ -66,3 +66,8 @@ background-color: black;
     right: 5%;
 }
 
+@media (width<300px){
+  .containerParent{
+    padding: 15px;
+  }
+}

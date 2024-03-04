@@ -15,7 +15,7 @@ const UserOverview = () => {
   const [status, setStatus] = useState([]);
   const [loading, setLoading] = useState(true);
   const WelcomeExpression = 'Welcome back, ' + user.username + '!';
-
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   //mock data 
   const plans = [
     {
@@ -102,40 +102,90 @@ const UserOverview = () => {
     };
 
     fetchData();
+  // Update window width on resize
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  // Cleanup event listener on component unmount
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
   }, []);
 
   return (
     <>
-      <section className={style.Overview}>
-        <DashHead title={loading ? 'Loading...' : WelcomeExpression} subtitle='Always stay organised in your study plan' date={true} />
-  
+    <section className={style.Overview}>
+        <DashHead
+          title={loading ? 'Loading...' : WelcomeExpression}
+          subtitle='Always stay organised in your study plan'
+          date={true}
+        />
+
         {loading ? (
-       <Loader/>
+          <Loader />
         ) : (
-          <section>
+          <section style={{ width: '100%' }}>
             {/* Your content here */}
             <section className={style.statistics}>
               <section className={style.progress}>
                 <h3>Lessons Progress</h3>
                 <ChartComponent />
               </section>
-  
+
               <section className={style.taskStatus}>
                 <h3>Tasks Status</h3>
                 <RadialTaskStatus data={status} />
               </section>
-  
-              <TodayTask rows={tasks} />
-              <div className={style.plansContainer}>
-                <h3>Most Active Plans</h3>
-                {plansProgress.length > 0 ? (
-                  plansProgress.map((plan, i) => (
-                    <PlanProgressCrad key={i} title={plan.title} lessons={plan.totalLessons} value={plan.progressPercentage} index={i} />
-                  ))
-                ) : (
-                  <p>There are no plans yet.</p>
-                )}
-              </div>
+
+              {/* Responsive order based on window width */}
+              {windowWidth < 1600 ? (
+                <>
+                  <div className={style.plansContainer}>
+                    <h3>Most Active Plans</h3>
+                    {plansProgress.length > 0 ? (
+                      plansProgress.map((plan, i) => (
+                        <PlanProgressCrad
+                          key={i}
+                          title={plan.title}
+                          lessons={plan.totalLessons}
+                          value={plan.progressPercentage}
+                          index={i}
+                        />
+                      ))
+                    ) : (
+                      <p>There are no plans yet.</p>
+                    )}
+                  </div>
+                  <div className={style.todayTask}>
+                    <TodayTask rows={tasks} />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className={style.todayTask}>
+                    <TodayTask rows={tasks} />
+                  </div>
+                  <div className={style.plansContainer}>
+                    <h3>Most Active Plans</h3>
+                    {plansProgress.length > 0 ? (
+                      plansProgress.map((plan, i) => (
+                        <PlanProgressCrad
+                          key={i}
+                          title={plan.title}
+                          lessons={plan.totalLessons}
+                          value={plan.progressPercentage}
+                          index={i}
+                        />
+                      ))
+                    ) : (
+                      <p>There are no plans yet.</p>
+                    )}
+                  </div>
+                </>
+              )}
             </section>
           </section>
         )}

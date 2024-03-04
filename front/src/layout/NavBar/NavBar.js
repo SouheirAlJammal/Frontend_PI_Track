@@ -87,7 +87,7 @@ const NavBar = () => {
                     ))}
                     <li id="conditionalLi">
                         <span className={style.navlinks}>
-                            <NavLink className={style.link} to='signup'>sign up</NavLink>
+                            <NavLink className={style.link} to='logIn'>LogIn</NavLink>
                         </span>
                     </li>
                     <div className={style.navButtonContainer}>

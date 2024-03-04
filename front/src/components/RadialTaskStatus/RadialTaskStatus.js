@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const RadialTaskStatus = ({data}) => {
-     const TasksData = Object.keys(data);
-const values = TasksData.map(key => data[key]);
-console.log('kkkkkkkk',values)
-const total = values.reduce((sum, value) => sum + value, 0);
+const RadialTaskStatus = ({ data }) => {
+  const TasksData = Object.keys(data);
+  const values = TasksData.map(key => data[key]);
+  console.log('kkkkkkkk', values)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [])
+  const total = values.reduce((sum, value) => sum + value, 0);
   const [chartData, setChartData] = useState({
     series: [...values],
     options: {
       chart: {
-        height: 350,
+        height: 300,
         type: 'radialBar',
       },
       plotOptions: {
@@ -32,24 +45,25 @@ const total = values.reduce((sum, value) => sum + value, 0);
           },
         },
       },
-      labels: ['Pending',"In Progress","Completed"],
+      labels: ['Pending', "In Progress", "Completed"],
       legend: {
-        show: true,
-        position: 'bottom', 
+        show: window.innerWidth >= 1600,
+        position: window.innerWidth < 1600 ? 'right' : 'bottom',
         horizontalAlign: 'center',
-        fontSize: '16px',
+        fontSize:  window.innerWidth < 1600 ? 12 : 14,
         markers: {
-          radius: 12, 
+          radius: 12,
         },
+
       },
       colors: ['rgb(247, 20, 172)', 'rgba(200,223,231,0.8)', '#E6A290'],
     },
   });
 
   return (
-      <div>
-        <ReactApexChart options={chartData.options} series={chartData.series} type="radialBar" height={350}/>
-      </div>
+    <div>
+      <ReactApexChart options={chartData.options} series={chartData.series} type="radialBar" height={350} />
+    </div>
   );
 };
 

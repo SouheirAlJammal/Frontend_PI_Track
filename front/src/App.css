@@ -19,6 +19,9 @@
  border: none !important;
  outline: none !important;
 }
+.css-1ygcj2i-MuiTableCell-root{
+  font-weight:600 !important;
+}
 
 body{
   background-color: #DA1D1D;

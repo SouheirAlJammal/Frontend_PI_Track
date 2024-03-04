@@ -4,7 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 function ProtectedRoute({
   isAllowed,
   children,
-  redirectPath = "/login",
+  redirectPath = "/logIn",
   isError = false,
 }) {
   if (isError) {
