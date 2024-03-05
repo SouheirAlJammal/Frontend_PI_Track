@@ -45,7 +45,8 @@ const TaskEvent = ({ task }) => {
         ? 'rgba(226, 17, 157, 0.3)'
         : task.status === 'Progress'
         ? 'rgba(200,223,231,0.3)' 
-        : 'rgba(83, 153, 83, 0.3)', }}>
+        : 'rgba(83, 153, 83, 0.3)',
+        }}>
         <Typography variant="subtitle1" fontWeight="bold">
           {task.title}
         </Typography>

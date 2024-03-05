@@ -7,7 +7,9 @@ const LessonCard = ({lesson,id}) => {
     <div className={style.container}>
     <section className={style.Info}>
       <h4 className={style.lessonTitle}>{lesson.title}</h4>
-      <p className={style.description}>{lesson.description}</p>
+      <p className={style.description}>
+      {(lesson.description.length > 80) ? (lesson.description.substring(0, 80) + '...') : lesson.description}
+      </p>
       <LinearProgress
             variant="determinate"
             value={lesson.lessonProgress[0].achievedMins || 0}
