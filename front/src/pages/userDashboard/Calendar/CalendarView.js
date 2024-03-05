@@ -73,7 +73,7 @@ const CalendarView = () => {
     events={events}
     startAccessor="startDate"
     endAccessor="endDate"
-    views={['month', 'week', 'day']}
+    views={['month', 'week', 'day','agenda']}
     onSelectEvent={handleEventClick}
     components={{
       event: (eventProps) => <TaskEvent task={eventProps.event} />,
