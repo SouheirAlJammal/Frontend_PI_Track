@@ -34,7 +34,6 @@ const TaskEvent = ({ task }) => {
       isDragging: !!monitor.isDragging(),
     }),
   });
-  console.log(task, 'hellloooooooooooooooo')
   return (
     <div
       ref={drag}
