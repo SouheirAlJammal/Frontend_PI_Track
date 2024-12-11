@@ -2,9 +2,9 @@ import { create } from "zustand";
 import zukeeper from "zukeeper";
 export const useUserStore = create(
   zukeeper((set) => ({
-    user:{},
+    user:null,
     setUser: (data) => set(() => ({ user: data })),
-    removeUser: () => set(() => ({ user: {} }))
+    removeUser: () => set(() => ({ user: null }))
   }))
 );
 

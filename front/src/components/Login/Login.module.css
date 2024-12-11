@@ -10,7 +10,7 @@
 
 .text {
   width: 100%;
-  text-align: right;
+  text-align: left;
   font-size: 18px;
 
 }
@@ -55,7 +55,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .emailInput {
@@ -71,7 +71,7 @@
   box-sizing: border-box;
   border-radius: 5px;
   padding: 0 10px;
-  border: 3px solid var(--font-color-title);
+  border: 2px solid var(--font-color-title);
 }
 
 .input:focus {
@@ -148,26 +148,27 @@
     width: 90%;
   }
   .input{
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .google {
-    width: 226px;
-    font-size: 18px;
+    width: 220px;
+    font-size: 16px;
 
   }
   .text{
-    font-size: 16px;
+    font-size: 14px;
 
   }
 
   .btn {
-    width: 250px;
-    font-size: 18px;
+    width: 220px;
+    font-size: 16px;
 
   }
 
   .title {
     letter-spacing: 1px;
+    font-size: 25px;
   }
 }

@@ -67,6 +67,7 @@ const Signup = () => {
             type="email"
             name="email"
             placeholder="Email"
+            autoComplete="username"
             {...register("email", { required: "Email is required" })}
             className={style.input}
           />
@@ -80,6 +81,7 @@ const Signup = () => {
             type={showPassword ? 'text' : 'password'}
             name="password"
             placeholder="Password"
+            autoComplete="new-password"
             {...register("password", { required: "Password is required" })}
             className={style.input}
           />
@@ -99,6 +101,7 @@ const Signup = () => {
           <input
             type="password"
             name="passwordConfirmation"
+            autoComplete="new-password"
             placeholder="Confirm Password"
             {...register("passwordConfirmation", {
               required: "Password confirmation is required",

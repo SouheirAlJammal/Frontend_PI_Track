@@ -6,8 +6,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useUserStore } from "../../Store";
 import google from '../../assets/google.png'
 import { FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
+
 const Login = () => {
-  const { setUser,user } = useUserStore();
+  const { setUser ,user } = useUserStore();
+
   const navigate = useNavigate();
 
   const {
@@ -27,11 +29,11 @@ const Login = () => {
         email: data.email,
         password: data.password,
       }, { withCredentials: true });
-      console.log(response)
       const fetchUser = async () => {
         try {
           const response = await axios.get(`${process.env.REACT_APP_ENDPOINT}api/users/user`, { withCredentials: true });
           setUser(response.data.data)  
+          navigate('/')
        
         } catch (err) {
           console.error("Error fetching user data:", err);
@@ -39,16 +41,6 @@ const Login = () => {
         }
       }
       await fetchUser()
-      // const { user } = useUserStore.getState();
-      console.log('hhhhhhhhhhhhhh',user)
-   if (user && user.role === 'admin') {
-        navigate("/dashboard", { replace: true });
-        console.log('llllllllllllll')
-      } else if (user && user.role === 'user') {
-        navigate("/", { replace: true });
-        console.log('llooooooooooooll')
-
-      }
 
     
     } catch (error) {
@@ -73,7 +65,7 @@ const Login = () => {
   return (
     <div className={style.container}>
       <h1 className={style.title}>Welcome Back</h1>
-      <button className={style.google}><img loading='lazy' src={google} width={30} alt='google' /> Login with Google</button>
+      <button className={style.google} ><img loading='lazy' src={google} width={30} alt='google' /> Login with Google</button>
       <p className={style.orText}>
         <span>---</span> OR <span>---</span>
       </p>
@@ -83,6 +75,7 @@ const Login = () => {
             type="email"
             name="email"
             placeholder="Email"
+            autoComplete="username"
             {...register("email", { required: "Email is required" })}
             className={style.input}
           />
@@ -94,6 +87,7 @@ const Login = () => {
             type={showPassword ? "text" : "password"}
             name="password"
             placeholder="Password"
+            autoComplete="current-password"
             {...register("password", { required: "Password is required" })}
             className={style.input}
           />

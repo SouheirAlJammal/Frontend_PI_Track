@@ -7,7 +7,7 @@ import Signup from '../../components/Signup/Signup';
 const Register = () => {
   const location = useLocation();
 
-  console.log('Current Path:', location.pathname);
+  // console.log('Current Path:', location.pathname);
   return (
     <div className={style.registerContainer}>
       <img src={sally} width={940} height={750} className={style.image} alt='fusee'/>

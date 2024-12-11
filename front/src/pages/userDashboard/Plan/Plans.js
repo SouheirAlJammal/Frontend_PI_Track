@@ -20,7 +20,7 @@ const Plans = () => {
       if (response) {
         setPlans(response.data.data);
         setLoading(false);
-        console.log(response.data.data);
+        // console.log(response.data.data,'PLANS');
       }
     } catch (error) {
       console.log(error);
@@ -44,8 +44,8 @@ const Plans = () => {
         </TaskHeader>
       )}
       <section className={style.plans}>
-        {plans.map((article, index) => (
-          <PlanCard key={index} article={article} animationOrder={index + 1} index={index} />
+        {plans.map((plan, index) => (
+          <PlanCard key={index} article={plan} animationOrder={index + 1} index={index} />
         ))}
       </section>
     </div>

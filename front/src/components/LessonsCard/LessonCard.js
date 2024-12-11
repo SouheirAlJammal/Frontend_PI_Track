@@ -2,17 +2,18 @@ import React from 'react'
 import style from './LessonCard.module.css'
 import { LinearProgress } from '@mui/material'
 const LessonCard = ({lesson,id}) => {
-  console.log('kkkkkkkkkkk',lesson.lessonProgress[0].achievedMins)
+  let progress = (((lesson.lessonProgress[0].achievedMins /lesson.totalMins)) * 100).toFixed(2);
+  console.log('kkkkkkkkkkk',lesson.lessonProgress[0])
   return (
     <div className={style.container}>
     <section className={style.Info}>
-      <h4 className={style.lessonTitle}>{lesson.title}</h4>
+      <h4 className={style.lessonTitle}> {(lesson.title.length > 30) ? (lesson.title.substring(0, 30) + '...') : lesson.title}</h4>
       <p className={style.description}>
       {(lesson.description.length > 80) ? (lesson.description.substring(0, 80) + '...') : lesson.description}
       </p>
       <LinearProgress
             variant="determinate"
-            value={lesson.lessonProgress[0].achievedMins || 0}
+            value={progress || 0}
             style={{
               backgroundColor: '#EAEAEA',
               height: '7px',
@@ -26,7 +27,7 @@ const LessonCard = ({lesson,id}) => {
               }
             }}
           />
-          <span>{lesson.lessonProgress[0].achievedMins || 0} %</span>
+          <span>{progress || 0} %</span>
           </section>
           <section className={style.footer}>
             <p>Total {lesson.totalMins}mins</p>

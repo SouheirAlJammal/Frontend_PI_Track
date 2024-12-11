@@ -67,8 +67,10 @@ const UserOverview = () => {
         `${process.env.REACT_APP_ENDPOINT}api/statistics/plansWithProgress`
       );
       if (response) {
+        // console.log(response.data.data)
         setPlansProgress(response.data.data);
-        setPlansProgress(plans)
+        // setPlansProgress(plans)
+        console.log(plansProgress,'plans')
         setLoading(false);
       }
     } catch (error) {
@@ -102,6 +104,8 @@ const UserOverview = () => {
     };
 
     fetchData();
+
+    
   // Update window width on resize
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -113,6 +117,8 @@ const UserOverview = () => {
   return () => {
     window.removeEventListener('resize', handleResize);
   };
+
+
   }, []);
 
   return (

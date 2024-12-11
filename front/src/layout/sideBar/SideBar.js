@@ -13,18 +13,18 @@ import { Avatar } from '@mui/material';
 import axios from 'axios'
 const SideBar = () => {
   const navigate = useNavigate();
-  const { user,setUser } = useUserStore()
+  const { user, setUser } = useUserStore()
   const [isSidebarClosed, setSidebarClosed] = useState(window.innerWidth < 1000);
-  const handleLogout = async () => { 
-      try {
-          await axios.post(`${process.env.REACT_APP_ENDPOINT}api/users/logout`);
-      setUser({})
+  const handleLogout = async () => {
+    try {
+      await axios.post(`${process.env.REACT_APP_ENDPOINT}api/users/logout`);
+      setUser(null)
       navigate('/');
-        } catch (err) {
-          console.error("Error logging out :", err);
-          setUser({})
-
-        }
+    } catch (err) {
+      console.error("Error logging out :", err);
+      setUser(null)
+      navigate('/');
+    }
   };
 
   useEffect(() => {
@@ -39,13 +39,21 @@ const SideBar = () => {
     };
   }, []);
 
+
+  useEffect(() => {
+    if (user === null) {
+      navigate('/'); 
+    }
+  }, [user, navigate]);
+
+
   const handleToggleSidebar = () => {
     setSidebarClosed(!isSidebarClosed);
   };
 
 
   const menuItems = [
-    { link: "/dashboard/overview", icon: <BsHouse className={styles.icon} />, text: "Dashboard" },
+    { link: "/dashboard", icon: <BsHouse className={styles.icon} />, text: "Dashboard" },
     { link: "/dashboard/plans", icon: <MdOutlinePlayLesson className={styles.icon} />, text: "Plans" },
     { link: "/dashboard/tasks", icon: <BiTask className={styles.icon} />, text: "Tasks" },
     { link: "/dashboard/calendar", icon: <IoCalendarNumberOutline className={styles.icon} />, text: "Calendar" },
@@ -57,14 +65,12 @@ const SideBar = () => {
     <div>
       <nav className={`${styles.sidebar} ${isSidebarClosed ? styles.close : ''}`}>
         <header>
-          <Link to='/' style={{ textDecoration: 'none' }}>
             <div className={styles['image-text']}>
               <SiSquarespace className={styles.image} />
               <div className={`${styles['logo-text']}`}>
                 <span className={styles.name}>PI-Track</span>
               </div>
             </div>
-          </Link>
           <i className={`bx bx-chevron-right ${styles.toggle}`} onClick={handleToggleSidebar}><IoIosArrowForward /></i>
         </header>
 

@@ -3,9 +3,9 @@ import styles from './PlanCard.module.css'
 import LinearProgress from '@mui/material/LinearProgress';
 import { Link } from 'react-router-dom';
 const PlanCard = ({ article, animationOrder }) => {
-let progress
+  // if(article.totalMins !==0){ progress = (article.participants && article.participants.length > 0) ? parseFloat(((article.participants[0].achievedTotalMins / article.totalMins )* 100).toFixed(2)) : 0}
+  let progress = ((article.participants[0].achievedTotalMins / article.totalMins )* 100).toFixed(2)
 
-  if(article.totalMins !==0){ progress = (article.participants && article.participants.length > 0) ? parseFloat(((article.participants[0].achievedTotalMins / article.totalMins )* 100).toFixed(2)) : 0}
   return (
     <div className={styles.article} style={{ "--animation-order": animationOrder }}>
       <Link className={styles.link} to={`plan/${article._id}`}>
