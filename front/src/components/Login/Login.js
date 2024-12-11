@@ -29,23 +29,15 @@ const Login = () => {
         email: data.email,
         password: data.password,
       }, { withCredentials: true });
-      const fetchUser = async () => {
-        try {
-          const response = await axios.get(`${process.env.REACT_APP_ENDPOINT}api/users/user`, { withCredentials: true });
-          setUser(response.data.data)  
+       if(response){
+         setUser(response.data.data)  
           navigate('/')
        
-        } catch (err) {
-          console.error("Error fetching user data:", err);
-          setUser(null)
-        }
-      }
-      await fetchUser()
-
-    
+    }
     } catch (error) {
       console.error("Error during login:", error);
 
+ 
       if (error.response) {
         const errorData = error.response.data;
         setError("email", { type: "manual", message: errorData.errors.email || "" });
