@@ -8,10 +8,10 @@ import google from '../../assets/google.png'
 import { FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
-  const { setUser ,user } = useUserStore();
+  const { setUser, user } = useUserStore();
 
   const navigate = useNavigate();
-
+  console.log('hello testing')
   const {
     register,
     handleSubmit,
@@ -29,15 +29,15 @@ const Login = () => {
         email: data.email,
         password: data.password,
       }, { withCredentials: true });
-       if(response){
-         setUser(response.data.data)  
-          navigate('/')
-       
-    }
+      if (response) {
+        setUser(response.data.data)
+        navigate('/')
+
+      }
     } catch (error) {
       console.error("Error during login:", error);
 
- 
+
       if (error.response) {
         const errorData = error.response.data;
         setError("email", { type: "manual", message: errorData.errors.email || "" });
@@ -106,7 +106,7 @@ const Login = () => {
         >
           {loading ? "Logging in..." : "Login"}
         </button>
-      </form> 
+      </form>
     </div>
   );
 };
