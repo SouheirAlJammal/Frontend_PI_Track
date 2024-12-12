@@ -29,10 +29,11 @@ const Login = () => {
         email: data.email,
         password: data.password,
       }, { withCredentials: true });
-      if (response) {
-        setUser(response.data.data)
+      if (response.status) {
+        await setUser(response.data)
+        console.log(response.data)
         navigate('/')
-
+        console.log(user, 'kkkkkkk')
       }
     } catch (error) {
       console.error("Error during login:", error);
