@@ -67,7 +67,6 @@ const UserOverview = () => {
         `${process.env.REACT_APP_ENDPOINT}api/statistics/plansWithProgress`
       );
       if (response) {
-        // console.log(response.data.data)
         setPlansProgress(response.data.data);
         // setPlansProgress(plans)
         console.log(plansProgress,'plans')

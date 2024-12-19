@@ -28,12 +28,12 @@ const Login = () => {
       const response = await axios.post(`${process.env.REACT_APP_ENDPOINT}api/users/login`, {
         email: data.email,
         password: data.password,
-      }, { withCredentials: true });
-      if (response.status) {
+      } ,{withCredentials:true});
+
+      console.log(response)
+      if (response.status===200) {
         await setUser(response.data)
-        console.log(response.data)
         navigate('/')
-        console.log(user, 'kkkkkkk')
       }
     } catch (error) {
       console.error("Error during login:", error);

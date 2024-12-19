@@ -10,11 +10,10 @@ axios.defaults.withCredentials = true;
 function App() {
   const { user, setUser } = useUserStore();
   const [isLoading, setIsLoading] = React.useState(true);
-
   const fetchUser = async () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_ENDPOINT}api/users/user`);
-      await setUser(response.data)
+      await setUser(response.data.data)
     } catch (err) {
       console.error("Error fetching user data:", err);
       await setUser(null);
@@ -22,10 +21,9 @@ function App() {
       setIsLoading(false);
     }
   };
-
   useEffect(() => {
-      fetchUser();
-  }, []);
+    fetchUser();
+}, []);
 
   if (isLoading) {
     return <Loader />;

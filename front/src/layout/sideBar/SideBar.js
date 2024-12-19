@@ -15,16 +15,10 @@ const SideBar = () => {
   const navigate = useNavigate();
   const { user, setUser } = useUserStore()
   const [isSidebarClosed, setSidebarClosed] = useState(window.innerWidth < 1000);
+  const removeUser = useUserStore((state) => state.removeUser);
   const handleLogout = async () => {
-    try {
-      await axios.post(`${process.env.REACT_APP_ENDPOINT}api/users/logout`);
-      setUser(null)
-      navigate('/');
-    } catch (err) {
-      console.error("Error logging out :", err);
-      setUser(null)
-      navigate('/');
-    }
+    await removeUser();
+    console.log("User logged out and token cleared");
   };
 
   useEffect(() => {
