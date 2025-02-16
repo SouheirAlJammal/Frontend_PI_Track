@@ -31,7 +31,7 @@ PI-Track is a feature-rich web application designed for efficient time and task 
 
 1. Clone the repository and navigate to the front directory:
    ```bash
-   git clone https://github.com/SouheirAlJammal/Frontend_Final_Project.git
+   git clone https://github.com/SouheirAlJammal/Frontend__PI_Track.git
    cd front
    
 2. Install dependencies:
